@@ -1,21 +1,21 @@
 #!/usr/bin/perl
 
-# MANUAL FOR extract_viral_taxonomy.pl
+# MANUAL FOR build_taxonomy_table.pl
 
 =pod
 
 =head1 NAME
 
-extract_viral_taxonomy.pl -- Created a txt file of viral taxonomy
+build_taxonomy_table.pl -- Created a txt file of taxonomy
 
 =head1 SYNOPSIS
 
- extract_viral_taxonomy.pl --nodes=/Path/to/nodes.dmp --names=/Path/to/names.dmp --out=/Path/to/output.txt
+ build_taxonomy_table.pl --nodes=/Path/to/nodes.dmp --names=/Path/to/names.dmp --out=/Path/to/output.txt
                      [--help] [--manual]
 
 =head1 DESCRIPTION
 
- Dumps all viral taxonomy (everythign in the NCBI tax id tree under the 10239 ID).
+ Dumps all taxonomy.
  
 =head1 OPTIONS
 
@@ -118,9 +118,9 @@ open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
 foreach my $child (keys %Tree) {
     my $parent = $Tree{$child};
     my @Taxa = get_lineage($child);
-    if ($Taxa[0] eq "Viruses") {
+    # if ($Taxa[0] eq "Viruses") {
 	print OUT $child . "\t" . join("\t", @Taxa) . "\n";
-    }
+    # }
 }
 close(OUT);
 
