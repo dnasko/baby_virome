@@ -9,7 +9,7 @@ The scripts in this repository serve to run the beta version of the Baby Virome 
 Building the Baby Virome database is easy, run the following command:
 
 ```bash
-./create_database.sh
+./scripts/create_database.sh
 ```
 
 And a "BabyViromeDB" directory will be created with all of the files needed for the analysis. Specifically, it will:
