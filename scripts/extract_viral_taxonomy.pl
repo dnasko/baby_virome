@@ -60,18 +60,16 @@ Report bugs to dnasko@umiacs.umd.edu
 
 =head1 COPYRIGHT
 
-Copyright 2015 Daniel Nasko.  
+Copyright 2017 Daniel Nasko.  
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.  
 This is free software: you are free to change and redistribute it.  
 There is NO WARRANTY, to the extent permitted by law.  
-
-Please acknowledge author and affiliation in published work arising from this script's 
-usage <http://bioinformatics.udel.edu/Core/Acknowledge>.
 
 =cut
 
 
 use strict;
+use warnings;
 use Getopt::Long;
 use File::Basename;
 use Pod::Usage;
@@ -112,17 +110,19 @@ while(<IN>) {
     my @a = split(/\t/, $_);
     my $parent = $a[2];
     my $child  = $a[0];
-    # print $parent . "\t" . $child . "\n";
     $Tree{$child} = $parent;
 }
 close(IN);
 
+open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
 foreach my $child (keys %Tree) {
     my $parent = $Tree{$child};
-    # print $child . "\t" . $Names{$child} . "\t" . $parent . "\t" . $Names{$parent} . "\n";
     my @Taxa = get_lineage($child);
-    print join("\t", @Taxa) . "\n";
+    if ($Taxa[0] eq "Viruses") {
+	print OUT $child . "\t" . join("\t", @Taxa) . "\n";
+    }
 }
+close(OUT);
 
 sub get_lineage
 {
@@ -133,7 +133,11 @@ sub get_lineage
 	$parent = $Tree{$parent};
 	push(@a, $parent);
     }
-    return(@a);
+    @a = reverse(@a);
+    my @b;
+    foreach my $i (@a) {push(@b, $Names{$i}); }
+    shift(@b);
+    return(@b);
 }
 
 exit 0;
