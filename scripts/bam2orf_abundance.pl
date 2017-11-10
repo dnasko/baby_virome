@@ -131,8 +131,9 @@ else {
 
 open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
 foreach my $i (keys %Abun) {
-    my $cov = $Abun{$i}/orf_len($i);
-    print OUT $i . "\t" . $cov . "\n";
+    my $orf_len = orf_len($i);
+    my $cov = $Abun{$i}/$orf_len;
+    print OUT $i . "\t" . $Abun{$i} . "\t" . $orf_len . "\t" . $cov . "\n";
 }
 close(OUT);
 

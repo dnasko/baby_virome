@@ -105,9 +105,9 @@ else {
 
 open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
 foreach my $i (keys %Hash) {
-    # length_
-    my $cov = $Hash{$i}/get_len($i);
-    print OUT $i . "\t" . $cov . "\n";
+    my $len = get_len($i);
+    my $cov = $Hash{$i}/$len;
+    print OUT $i . "\t" . $Hash{$i} . "\t" . $len . "\t" . $cov . "\n";
 }
 close(OUT);
 
