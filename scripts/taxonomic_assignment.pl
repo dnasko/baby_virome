@@ -1,26 +1,26 @@
 #!/usr/bin/perl
 
-# MANUAL FOR function_assignment.pl
+# MANUAL FOR taxonomic_assignment.pl
 
 =pod
 
 =head1 NAME
 
-function_assignment.pl -- Calculate per-ORF and overall functional counts from BLAST output
+taxonomic_assignment.pl -- Calculate per-ORF and overall taxonomic counts from BLAST output
 
 =head1 SYNOPSIS
 
- function_assignment.pl --btab=/Path/to/input.btab --out=/Path/to/output.txt [--abundance=/Path/to/abun.txt]
+ taxonomic_assignment.pl --btab=/Path/to/input.btab --out=/Path/to/output.txt [--abundance=/Path/to/abun.txt]
                      [--help] [--manual]
 
 =head1 DESCRIPTION
 
- Calculates per-ORF functional assignment using the btab output of a BLASTp
- against the Phage SEED database. Function is assigned based on max(sum(bit score))
- for each function that a query has.
+ Calculates per-ORF taxonomic assignment using the btab output of a BLASTp
+ against the Phage SEED database. Taxonomy is assigned based on max(sum(bit score))
+ for each taxon that a contig's collection of ORF's have.
 
- If an ORF abundance file is passed (--abundnace) then the abundances for each ORF will be calculated
- and reported for each function. Otherwise raw counts will be used.
+ If an abundnace file is passed (--abundnace) then the abundnaces in that 2-column file
+ will be used to claculate abundance of a given taxon. Otherwise raw counts will be used.
  
 =head1 OPTIONS
 
@@ -32,7 +32,7 @@ BLAST tabular output from a search against Phage SEED. (Required)
 
 =item B<-a, --abundance>=FILENAME
 
-ORF abundance file (Optional).
+2-column file with <header> [TAB] <abundance>. Will be used to calculate abundance (Optional).
 
 =item B<-o, --out>=FILENAME
 
@@ -83,10 +83,11 @@ use File::Basename;
 use Pod::Usage;
 
 #ARGUMENTS WITH NO DEFAULT
-my($btab,$abundance,$outfile,$help,$manual);
+my($btab,$taxonomy,$abundance,$outfile,$help,$manual);
 
 GetOptions (	
                                 "b|btab=s"	=>	\$btab,
+                                "t|tax=s"       =>      \$taxonomy,
                                 "a|abundance=s" =>      \$abundance,
 				"o|out=s"	=>	\$outfile,
 				"h|help"	=>	\$help,
@@ -96,9 +97,11 @@ GetOptions (
 pod2usage(-verbose => 2)  if ($manual);
 pod2usage( {-exitval => 0, -verbose => 2, -output => \*STDERR} )  if ($help);
 pod2usage( -msg  => "\n\n ERROR!  Required argument --btab not found.\n\n", -exitval => 2, -verbose => 1)  if (! $btab );
+pod2usage( -msg  => "\n\n ERROR!  Required argument --taxonomy not found.\n\n", -exitval => 2, -verbose => 1)  if (! $taxonomy );
 pod2usage( -msg  => "\n\n ERROR!  Required argument -outfile not found.\n\n", -exitval => 2, -verbose => 1)  if (! $outfile);
 
 my %Abundance;
+my %Taxa;
 my @Order;
 my %Results;
 my %ViromeResults;
@@ -106,27 +109,37 @@ my %ViromeResults;
 my $out_per_query = $outfile . "_per_query.txt";
 my $out_whole_set = $outfile . "_whole_virome.txt";
 
-open(IN,"<$btab") || die "\n Error: Cannot open the file: $btab\n";
-while(<IN>) {
-    chomp;
-    my @a = split(/\t/, $_);
-    my $fxn = get_fxn($a[12]);
-    unless (exists $Results{$a[0]}) {
-	push(@Order, $a[0]);
-    }
-    $Results{$a[0]}{$fxn} += $a[11];
-}
-close(IN);
-
 if ($abundance) {
     open(IN,"<$abundance") || die "\n Cannot open the abundance file: $abundance\n";
     while(<IN>) {
-        chomp;
-        my @a = split(/\t/, $_);
-        $Abundance{$a[0]} = $a[1];
+	chomp;
+	my @a = split(/\t/, $_);
+	$Abundance{$a[0]} = $a[1];
     }
     close(IN);
 }
+
+open(IN,"<$taxonomy") || die "\n Cannot open the taxonomy file: $taxonomy\n";
+while(<IN>) {
+    chomp;
+    my @a = split(/\t/, $_);
+    my $taxid = shift(@a);
+    $Taxa{$taxid} = join("\t", @a);
+}
+close(IN);
+
+open(IN,"<$btab") || die "\n Error: Cannot open the btab file: $btab\n";
+while(<IN>) {
+    chomp;
+    my @a = split(/\t/, $_);
+    my $taxid = get_tax($a[12]);
+    my $root = get_root($a[0]);
+    unless (exists $Results{$root}) {
+	push(@Order, $root);
+    }
+    $Results{$root}{$taxid} += $a[11];
+}
+close(IN);
 
 open(OUT,">$out_per_query") || die "\n Cannot open the file: $out_per_query\n";
 foreach my $i (@Order) {
@@ -159,10 +172,19 @@ foreach my $i (sort keys %ViromeResults) {
 }
 close(OUT);
 
-sub get_fxn
+sub get_root
 {
     my $s = $_[0];
-    $s =~ s/.*? //;
+    my @a = split(/_/, $s);
+    pop(@a); pop(@a); pop(@a);
+    return(join("_", @a));
+}
+
+sub get_tax
+{
+    my $s = $_[0];
+    $s =~ s/^fig\|//;
+    $s =~ s/\..*//;
     return $s;
 }
 
