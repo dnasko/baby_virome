@@ -138,24 +138,25 @@ foreach my $i (@Order) {
 	    $fxn = $j;
 	}
     }
-    print OUT $i . "\t" . $fxn . "\t";
+    print OUT $i . "\t";
     if ($abundance) {
 	if (exists $Abundance{$i}) {
-	    print OUT $Abundance{$i} . "\n";
+	    print OUT $Abundance{$i} . "\t";
 	    $ViromeResults{$fxn} += $Abundance{$i};
 	}
-	else { print OUT "0\n"; }
+	else { print OUT "0\t"; }
     }
     else {
-	print OUT "1\n";
+	print OUT "1\t";
 	$ViromeResults{$fxn}++;
     }
+    print OUT $fxn . "\n";
 }
 close(OUT);
 
 open(OUT,">$out_whole_set") || die "\n Cannot open the file: $out_whole_set\n";
-foreach my $i (sort keys %ViromeResults) {
-    print OUT $i . "\t" . $ViromeResults{$i} . "\n";
+foreach my $i (sort { $ViromeResults{$b} <=> $ViromeResults{$a} } keys %ViromeResults) {
+    print OUT $ViromeResults{$i} . "\t" . $i . "\n";
 }
 close(OUT);
 

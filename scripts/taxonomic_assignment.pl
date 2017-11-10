@@ -10,7 +10,7 @@ taxonomic_assignment.pl -- Calculate per-ORF and overall taxonomic counts from B
 
 =head1 SYNOPSIS
 
- taxonomic_assignment.pl --btab=/Path/to/input.btab --out=/Path/to/output.txt [--abundance=/Path/to/abun.txt]
+ taxonomic_assignment.pl --btab=/Path/to/input.btab --tax=/Path/to/taxa.lookup --out=/Path/to/output.txt [--abundance=/Path/to/abun.txt]
                      [--help] [--manual]
 
 =head1 DESCRIPTION
@@ -33,6 +33,10 @@ BLAST tabular output from a search against Phage SEED. (Required)
 =item B<-a, --abundance>=FILENAME
 
 2-column file with <header> [TAB] <abundance>. Will be used to calculate abundance (Optional).
+
+=item B<-t, --tax>=FILENAME
+
+Taxonomy lookup file made by the build_taxonomy_table.pl script (Required).
 
 =item B<-o, --out>=FILENAME
 
@@ -144,31 +148,38 @@ close(IN);
 open(OUT,">$out_per_query") || die "\n Cannot open the file: $out_per_query\n";
 foreach my $i (@Order) {
     my $max=0;
-    my $fxn;
+    my $tax;
     foreach my $j (keys %{$Results{$i}}) {
 	if ($Results{$i}{$j} > $max) {
 	    $Results{$i}{$j} = $max;
-	    $fxn = $j;
+	    $tax = $j;
 	}
     }
-    print OUT $i . "\t" . $fxn . "\t";
+    print OUT $i . "\t";
     if ($abundance) {
 	if (exists $Abundance{$i}) {
-	    print OUT $Abundance{$i} . "\n";
-	    $ViromeResults{$fxn} += $Abundance{$i};
+	    print OUT $Abundance{$i} . "\t";
+	    $ViromeResults{$tax} += $Abundance{$i};
 	}
-	else { print OUT "0\n"; }
+	else { print OUT "0\t"; }
     }
     else {
-	print OUT "1\n";
-	$ViromeResults{$fxn}++;
+	print OUT "1\t";
+	$ViromeResults{$tax}++;
     }
+    print OUT $tax . "\t";
+    if (exists $Taxa{$tax}) { print OUT $Taxa{$tax}; }
+    print OUT "\n";
 }
 close(OUT);
 
 open(OUT,">$out_whole_set") || die "\n Cannot open the file: $out_whole_set\n";
-foreach my $i (sort keys %ViromeResults) {
-    print OUT $i . "\t" . $ViromeResults{$i} . "\n";
+foreach my $i (sort { $ViromeResults{$b} <=> $ViromeResults{$a} } keys %ViromeResults) {
+    print OUT $ViromeResults{$i} . "\t" . $i . "\t";
+    if (exists $Taxa{$i}) {
+	print OUT $Taxa{$i};
+    }
+    print OUT "\n";
 }
 close(OUT);
 
