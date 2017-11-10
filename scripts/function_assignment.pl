@@ -123,7 +123,7 @@ if ($abundance) {
     while(<IN>) {
         chomp;
         my @a = split(/\t/, $_);
-        $Abundance{$a[0]} = $a[1];
+        $Abundance{$a[0]} = $a[4];
     }
     close(IN);
 }

@@ -18,6 +18,8 @@ bam2orf_abundance.pl -- create an abundance table from a sorted BAM file with OR
  Go through a sorted bam file and calculate the abundance for each sequence.
  Need the ORFs FASTA file so the abundance of ORFs is calculated.
 
+ Five fields are printed out: contig_id, bases_recruited_to_contig, contig_len, coverage, normalized_coverage 
+
 =head1 OPTIONS
 
 =over 3
@@ -97,6 +99,7 @@ pod2usage( -msg  => "\n\n ERROR!  Required argument --out not found.\n\n", -exit
 
 my %Coord;
 my %Abun;
+my $giga_bases=0;
 
 open(IN,"<$orfs") || die "\n Cannot open the file: $orfs\n";
 while(<IN>) {
@@ -121,6 +124,7 @@ if (-e $bam) {
 	my @a = split(/\t/, $line);
 	if (exists $Coord{$a[0]}{$a[1]}) {
 	    $Abun{$Coord{$a[0]}{$a[1]}} += $a[2];
+	    $giga_bases += $a[2];
 	}
     }
     close $cmd;
@@ -128,12 +132,15 @@ if (-e $bam) {
 else {
     die "\n Error: The BAM file is not there: $bam \n";
 }
+$giga_bases /= 1000000000;
 
 open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
 foreach my $i (keys %Abun) {
     my $orf_len = orf_len($i);
     my $cov = $Abun{$i}/$orf_len;
-    print OUT $i . "\t" . $Abun{$i} . "\t" . $orf_len . "\t" . $cov . "\n";
+    my $norm = $cov/$giga_bases;
+
+    print OUT $i . "\t" . $Abun{$i} . "\t" . $orf_len . "\t" . $cov . "\t" . $norm ."\n";
 }
 close(OUT);
 

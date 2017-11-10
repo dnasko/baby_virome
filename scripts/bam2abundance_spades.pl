@@ -17,6 +17,9 @@ bam2abundance_spades.pl -- create an abundance table from a sorted BAM file with
 
  Go through a sorted bam file and calculate the abundance for each sequence.
  Can only be reliable with SPAdes contigs because we need the contig's length.
+
+ Five fields are printed out: contig_id, bases_recruited_to_contig, contig_len, coverage, normalized_coverage
+
 =head1 OPTIONS
 
 =over 3
@@ -89,6 +92,7 @@ pod2usage( -msg  => "\n\n ERROR!  Required argument --bam not found.\n\n", -exit
 pod2usage( -msg  => "\n\n ERROR!  Required argument --out not found.\n\n", -exitval => 2, -verbose => 1)  if (! $outfile);
 
 my %Hash;
+my $giga_bases=0;
 
 if (-e $bam) {
     open(my $cmd, '-|', 'samtools', 'depth', "$bam") or die $!;
@@ -96,6 +100,7 @@ if (-e $bam) {
 	chomp($line);
 	my @a = split(/\t/, $line);
 	$Hash{$a[0]} += $a[2];
+	$giga_bases += $a[2];
     }
     close $cmd;
 }
@@ -103,11 +108,14 @@ else {
     die "\n Error: The BAM file is not there: $bam \n";
 }
 
+$giga_bases /= 1000000000;
+
 open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
 foreach my $i (keys %Hash) {
     my $len = get_len($i);
     my $cov = $Hash{$i}/$len;
-    print OUT $i . "\t" . $Hash{$i} . "\t" . $len . "\t" . $cov . "\n";
+    my $norm = $cov / $giga_bases;
+    print OUT $i . "\t" . $Hash{$i} . "\t" . $len . "\t" . $cov . "\t" . $norm . "\n";
 }
 close(OUT);
 
