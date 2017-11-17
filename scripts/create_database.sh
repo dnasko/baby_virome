@@ -11,6 +11,12 @@ wget --ftp-user=anonymous --ftp-password=dnasko@umiacs.umd.edu "ftp://ftp.thesee
 wget --ftp-user=anonymous --ftp-password=dnasko@umiacs.umd.edu "ftp://ftp.theseed.org/subsystems/subsys.txt"
 wget --ftp-user=anonymous --ftp-password=dnasko@umiacs.umd.edu "ftp://ftp.theseed.org/genomes/SEED/all.faa.gz"
 
+## Download Phage SEED
+wget "http://www.phantome.org/Downloads/proteins/all_sequences/phage_proteins_1496314803.fasta.gz"
+
+## Set everything up
+gunzip phage_proteins_1496314803.fasta.gz
+mv phage_proteins_1496314803.fasta Phage_SEED_2017-06-01
 gunzip subsystems2peg.gz
 gunzip all.faa.gz
 mv all.faa SEED_original
@@ -18,8 +24,9 @@ mv all.faa SEED_original
 mv SEED_original_updated.fasta SEED
 rm SEED_original
 
-## Make the blast database
+## Make the blast databases
 makeblastdb -in SEED -dbtype prot
+makeblastdb -in Phage_SEED_2017-06-01 -dbtype prot
 
 ## Download the taxonomy information
 mkdir tax
