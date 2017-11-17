@@ -15,10 +15,11 @@ Building the Baby Virome database is easy, run the following command:
 And a "BabyViromeDB" directory will be created with all of the files needed for the analysis. Specifically, it will:
 
 1. Download the SEED database amino acid FASTA file and two files that link PEG's to SubSystems
-2. Link PEGs to SubSystems and re-write the headers of the FASTA file
-3. Make a BLASTp database from the FASTA file
-4. Download the NCBI Taxonomy database
-5. Parse these files to create the taxonomy strings for tax results
+2. Download the Phage SEED database amino acid FASTA file
+3. Link PEGs to SubSystems and re-write the headers of the FASTA file
+4. Make a BLASTp database from the FASTA file
+5. Download the NCBI Taxonomy database
+6. Parse these files to create the taxonomy strings for tax results
 
 ### Running the Baby Virome analysis
 
@@ -37,4 +38,4 @@ Next, BLAST the peptide ORFs against the SEED database. Feel free to use the par
 
 Next we'll parse through the tabular output for results.
 
-*Rev DJN 07Nov2017*
+*Rev DJN 17Nov2017*
