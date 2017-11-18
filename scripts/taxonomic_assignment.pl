@@ -10,7 +10,7 @@ taxonomic_assignment.pl -- Calculate per-ORF and overall taxonomic counts from B
 
 =head1 SYNOPSIS
 
- taxonomic_assignment.pl --btab=/Path/to/input.btab --tax=/Path/to/taxa.lookup --out=/Path/to/output.txt [--abundance=/Path/to/abun.txt]
+ taxonomic_assignment.pl --btab=/Path/to/input1.btab,/to/input2.btab --tax=/Path/to/taxa.lookup --out=/Path/to/output.txt [--abundance=/Path/to/abun.txt]
                      [--help] [--manual]
 
 =head1 DESCRIPTION
@@ -28,7 +28,7 @@ taxonomic_assignment.pl -- Calculate per-ORF and overall taxonomic counts from B
 
 =item B<-b, --btab>=FILENAME
 
-BLAST tabular output from a search against Phage SEED. (Required)
+BLAST tabular output(s) from a search against SEED/Phage SEED. Multiple BTAB's can be passed using commas. (Required)
 
 =item B<-a, --abundance>=FILENAME
 
@@ -132,18 +132,21 @@ while(<IN>) {
 }
 close(IN);
 
-open(IN,"<$btab") || die "\n Error: Cannot open the btab file: $btab\n";
-while(<IN>) {
-    chomp;
-    my @a = split(/\t/, $_);
-    my $taxid = get_tax($a[12]);
-    my $root = get_root($a[0]);
-    unless (exists $Results{$root}) {
-	push(@Order, $root);
+my @Btabs = split(/,/, $btab);
+foreach my $btab_file (@Btabs) {
+    open(IN,"<$btab_file") || die "\n Error: Cannot open the btab file: $btab_file\n";
+    while(<IN>) {
+	chomp;
+	my @a = split(/\t/, $_);
+	my $taxid = get_tax($a[1]);
+	my $root = get_root($a[0]);
+	unless (exists $Results{$root}) {
+	    push(@Order, $root);
+	}
+	$Results{$root}{$taxid} += $a[11];
     }
-    $Results{$root}{$taxid} += $a[11];
+    close(IN);
 }
-close(IN);
 
 open(OUT,">$out_per_query") || die "\n Cannot open the file: $out_per_query\n";
 foreach my $i (@Order) {
@@ -179,6 +182,7 @@ foreach my $i (sort { $ViromeResults{$b} <=> $ViromeResults{$a} } keys %ViromeRe
     if (exists $Taxa{$i}) {
 	print OUT $Taxa{$i};
     }
+    else { print OUT "Unknown" }
     print OUT "\n";
 }
 close(OUT);
