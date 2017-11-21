@@ -23,7 +23,7 @@ And a "BabyViromeDB" directory will be created with all of the files needed for 
 
 ## Running the Baby Virome analysis
 
-Once the database is downloaded you will want to predict ORFs on your contigs:
+The input to the Baby Virome pipeline is assembeld contigs (presumably from a virome). Next, you need to predict open reading frames (ORFs) from your contigs:
 
 ```bash
 ./software/mga_linux_ia64 -m input.fasta > output.mga
