@@ -2,7 +2,7 @@
 
 ##### A small virome analysis pipeline
 
-The scripts in this repository serve to run the beta version of the Baby Virome Pipeline. The goal is to get taxonomic and functioanl information from shotgun viral metagenome (virome). This is done by performing a BLASTp of virome peptide open reading frames (ORFs) against the SEED database.
+The scripts in this repository serve to run the beta version of the Baby Virome Pipeline. The goal is to get taxonomic and functional information from shotgun viral metagenome (virome). This is done by performing a BLASTp of virome peptide open reading frames (ORFs) against the SEED and Phage SEED databases.
 
 ### Building the Baby Virome database
 
@@ -21,7 +21,7 @@ And a "BabyViromeDB" directory will be created with all of the files needed for 
 5. Download the NCBI Taxonomy database
 6. Parse these files to create the taxonomy strings for tax results
 
-### Running the Baby Virome analysis
+## Running the Baby Virome analysis
 
 Once the database is downloaded you will want to predict ORFs on your contigs:
 
@@ -30,12 +30,33 @@ Once the database is downloaded you will want to predict ORFs on your contigs:
 ./scripts/mga2fasta.pl -f input.fasta -mg output.mga -p prefix -o ./
 ```
 
-Next, BLAST the peptide ORFs against the SEED database. Feel free to use the para_blastp.pl script, which is usually faster than blastp:
+### Abundance information
+
+The Baby Virome pipeline relies on abundnace information for each contig. I mean, without that information, what are you counting? Some *k*-mer based assemblers produce a coverage metric in the header (e.g. SPAdes). These abundance estimates aren't very good. It's better to recruit your QC'd reads back to the contigs you just assembled. You can do this using [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) or [BBMap](https://sourceforge.net/p/bbmap/wiki/Home/). Here's an example using Bowtie2 and SAMtools:
 
 ```bash
-./scripts/para_blastp.pl -q prefix.pep -d ./BabyViromeDB/SEED -o output.btab --outfmt='"6 std salltitles"' -e 1e-3 -t 30
+bowtie2 -p 30 --very-sensitive-local -x MD10_VIRAL_OCT \
+	-1 ./01-flash/out.notCombined_1.fastq.gz \
+	-2 ./01-flash/out.notCombined_2.fastq.gz \
+	-U ./01-flash/out.extendedFrags.fastq.gz 2> bowtie2.log | samtools view -Sb -F 4 - | samtools sort -o out_sorted.bam -
+```
+
+Using either tool you'll need to produce a sorted BAM file to get the abundance information we want. Using that sorted BAM file you can get abundance information for contigs and predicted ORFs, like so:
+
+```bash
+./scripts/bam2abundance_spades.pl --bam=./out_sorted.bam --out=./contig_abundance.txt
+./scripts/bam2orf_abundance.pl --bam=./out_sorted.bam --orfs=./orfs.pep --out=./orf_abundance.txt
+```
+
+### BLAST against SEED and Phage SEED
+
+Next, BLAST the peptide ORFs against the SEED and Phage SEED databases. Feel free to use the para_blastp.pl script, which is usually faster than blastp:
+
+```bash
+./scripts/para_blastp.pl -q prefix.pep -d ./BabyViromeDB/SEED -o seed.btab --outfmt='"6 std salltitles"' -e 1e-3 -t 30
+./scripts/para_blastp.pl -q prefix.pep -d ./BabyViromeDB/Phage_SEED -o phage_seed.btab --outfmt='"6 std salltitles"' -e 1e-3 -t 30
 ```
 
 Next we'll parse through the tabular output for results.
 
-*Rev DJN 17Nov2017*
+*Rev DJN 20Nov2017*
