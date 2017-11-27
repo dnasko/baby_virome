@@ -95,8 +95,8 @@ my($btab,$subsys2peg,$subsys,$abundance,$outfile,$help,$manual);
 
 GetOptions (	
                                 "b|btab=s"	=>	\$btab,
-                                "sp|subsys2peg" =>      \$subsys2peg,
-                                "s|subsys"      =>      \$subsys,
+                                "sp|subsys2peg=s" =>      \$subsys2peg,
+                                "s|subsys=s"      =>      \$subsys,
                                 "a|abundance=s" =>      \$abundance,
 				"o|out=s"	=>	\$outfile,
 				"h|help"	=>	\$help,
@@ -109,22 +109,24 @@ pod2usage( -msg  => "\n\n ERROR!  Required argument --btab not found.\n\n", -exi
 pod2usage( -msg  => "\n\n ERROR!  Required argument --subsys2peg not found.\n\n", -exitval => 2, -verbose => 1)  if (! $subsys2peg );
 pod2usage( -msg  => "\n\n ERROR!  Required argument --subsys not found.\n\n", -exitval => 2, -verbose => 1)  if (! $subsys );
 pod2usage( -msg  => "\n\n ERROR!  Required argument -outfile not found.\n\n", -exitval => 2, -verbose => 1)  if (! $outfile);
+if ($abundance) {
+    if ($abundance !~ m/orf/i) {
+	print STDERR "\nWARNING: Make sure your abundance file is an ORF abundance file: $abundance\n\n";
+    }
+}
 
 my %Peg2Subsys;
-my %SubsysString;
+my %SubsysString; ## holds the 4 seed levels
 my %Abundance; # Holding abundance information
 my @Order; # Order of the query sequences
 my %Results; 
 my %ViromeResults;
 
-my $out_per_query = $outfile . "_per_query.txt";
-my $out_whole_set = $outfile . "_whole_virome.txt";
-
 open(IN,"<$subsys2peg") || die "\n Cannot open the file: $subsys2peg\n";
 while(<IN>) {
     chomp;
     my @a = split(/\t/, $_);
-    $Peg2Subsys{$a[2]} = $a[1];
+    $Peg2Subsys{$a[2]} = $a[0] . "\t" . $a[1];
 }
 close(IN);
 
@@ -132,7 +134,9 @@ open(IN,"<$subsys") || die "\n Cannot open the file: $subsys\n";
 while(<IN>) {
     chomp;
     my @a = split(/\t/, $_);
-    $SubsysString{$a[3]} = $_;
+    $SubsysString{$a[2] . "\t" . $a[3]} = $_;
+    pop(@a);
+    $SubsysString{$a[2] . "\t"} = join("\t", @a);
 }
 close(IN);
 
@@ -144,7 +148,7 @@ while(<IN>) {
     if (exists $Peg2Subsys{$a[1]}) {
 	$fxn = $Peg2Subsys{$a[1]};
     }
-    else { die "\n Cannot find subsys for thei peg: $a[1]\n\n"; }
+    else { die "\n Cannot find subsys for the peg: $a[1]\n\n"; }
     unless (exists $Results{$a[0]}) {
 	push(@Order, $a[0]);
     }
@@ -162,7 +166,6 @@ if ($abundance) {
     close(IN);
 }
 
-open(OUT,">$out_per_query") || die "\n Cannot open the file: $out_per_query\n";
 foreach my $i (@Order) {
     my $max=0;
     my $fxn;
@@ -172,28 +175,23 @@ foreach my $i (@Order) {
 	    $fxn = $j;
 	}
     }
-    print OUT $i . "\t";
     if ($abundance) {
 	if (exists $Abundance{$i}) {
-	    print OUT $Abundance{$i} . "\t";
 	    $ViromeResults{$fxn} += $Abundance{$i};
 	}
-	else { print OUT "0\t"; }
+	else {  $ViromeResults{$fxn} += 0; } # If it isn't there, then the abundance must be zero
     }
     else {
-	print OUT "1\t";
 	$ViromeResults{$fxn}++;
     }
-    print OUT $fxn . "\n";
 }
-close(OUT);
 
-open(OUT,">$out_whole_set") || die "\n Cannot open the file: $out_whole_set\n";
+open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
 foreach my $i (sort { $ViromeResults{$b} <=> $ViromeResults{$a} } keys %ViromeResults) {
     if (exists $SubsysString{$i}) {
 	print OUT $ViromeResults{$i} . "\t" . $SubsysString{$i} . "\n";
     }
-    else { die "\n Cannot find the string for: $i\n\n"; }
+    else { die "\n Cannot find the string for: --> $i <--\n\n"; }
 }
 close(OUT);
 
