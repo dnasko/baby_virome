@@ -1,16 +1,16 @@
 #!/usr/bin/perl
 
-# MANUAL FOR function_assignment.pl
+# MANUAL FOR function_assignment_2_korona.pl
 
 =pod
 
 =head1 NAME
 
-function_assignment.pl -- Calculate per-ORF and overall functional counts from BLAST output
+function_assignment_2_korona.pl -- Calculate per-ORF and overall functional counts from BLAST output
 
 =head1 SYNOPSIS
 
- function_assignment.pl --btab=/Path/to/input.btab --out=/Path/to/output.txt [--abundance=/Path/to/abun.txt] [--viruses_only=/Path/to/taxonomy_lookup.txt]
+ function_assignment_2_korona.pl --subsys2peg=/Path/to/subsys2peg.txt --subsys=/Path/to/subsys.txt --btab=/Path/to/input.btab --out=/Path/to/output.txt [--abundance=/Path/to/abun.txt]
                      [--help] [--manual]
 
 =head1 DESCRIPTION
@@ -22,7 +22,6 @@ function_assignment.pl -- Calculate per-ORF and overall functional counts from B
  If an ORF abundance file is passed (--abundnace) then the abundances for each ORF will be calculated
  and reported for each function. Otherwise raw counts will be used.
  
- If you just want results for viruses, you pass the taxonomy_lookup file with the --viruses_only flag
 =head1 OPTIONS
 
 =over 3
@@ -31,13 +30,17 @@ function_assignment.pl -- Calculate per-ORF and overall functional counts from B
 
 BLAST tabular output from a search against Phage SEED. (Required)
 
+=item B<-sp, --subsys2peg>=FILENAME
+
+The Subsystem to peg lookup. (Required).
+
+=item B<-s, --subsys>=FILENAME
+
+The subsys.txt file. (Required).
+
 =item B<-a, --abundance>=FILENAME
 
 ORF abundance file (Optional).
-
-=item B<-v, --viruses_only>=FILENAME
-
-Results for just viral hits. Point it to the taxonomy_lookup.txt file. (Optional)
 
 =item B<-o, --out>=FILENAME
 
@@ -88,12 +91,13 @@ use File::Basename;
 use Pod::Usage;
 
 #ARGUMENTS WITH NO DEFAULT
-my($btab,$abundance,$viruses_only,$outfile,$help,$manual);
+my($btab,$subsys2peg,$subsys,$abundance,$outfile,$help,$manual);
 
 GetOptions (	
                                 "b|btab=s"	=>	\$btab,
+                                "sp|subsys2peg" =>      \$subsys2peg,
+                                "s|subsys"      =>      \$subsys,
                                 "a|abundance=s" =>      \$abundance,
-                                "v|viruses_only=s" =>     \$viruses_only,
 				"o|out=s"	=>	\$outfile,
 				"h|help"	=>	\$help,
 				"m|manual"	=>	\$manual);
@@ -102,49 +106,49 @@ GetOptions (
 pod2usage(-verbose => 2)  if ($manual);
 pod2usage( {-exitval => 0, -verbose => 2, -output => \*STDERR} )  if ($help);
 pod2usage( -msg  => "\n\n ERROR!  Required argument --btab not found.\n\n", -exitval => 2, -verbose => 1)  if (! $btab );
+pod2usage( -msg  => "\n\n ERROR!  Required argument --subsys2peg not found.\n\n", -exitval => 2, -verbose => 1)  if (! $subsys2peg );
+pod2usage( -msg  => "\n\n ERROR!  Required argument --subsys not found.\n\n", -exitval => 2, -verbose => 1)  if (! $subsys );
 pod2usage( -msg  => "\n\n ERROR!  Required argument -outfile not found.\n\n", -exitval => 2, -verbose => 1)  if (! $outfile);
 
-my %Abundance;
-my @Order;
-my %Results;
+my %Peg2Subsys;
+my %SubsysString;
+my %Abundance; # Holding abundance information
+my @Order; # Order of the query sequences
+my %Results; 
 my %ViromeResults;
-my %Viruses;
 
 my $out_per_query = $outfile . "_per_query.txt";
 my $out_whole_set = $outfile . "_whole_virome.txt";
 
-if ($viruses_only) {
-    open(IN,"<$viruses_only") || die "\n Cannot open the file: $viruses_only\n";
-    while(<IN>) {
-	chomp;
-	my @a = split(/\t/, $_);
-	if ($a[1] eq "Viruses") {
-	    $Viruses{$a[0]} = 1;
-	}
-    }
-    close(IN);
+open(IN,"<$subsys2peg") || die "\n Cannot open the file: $subsys2peg\n";
+while(<IN>) {
+    chomp;
+    my @a = split(/\t/, $_);
+    $Peg2Subsys{$a[2]} = $a[1];
 }
+close(IN);
+
+open(IN,"<$subsys") || die "\n Cannot open the file: $subsys\n";
+while(<IN>) {
+    chomp;
+    my @a = split(/\t/, $_);
+    $SubsysString{$a[3]} = $_;
+}
+close(IN);
 
 open(IN,"<$btab") || die "\n Error: Cannot open the file: $btab\n";
 while(<IN>) {
     chomp;
     my @a = split(/\t/, $_);
-    my $fxn = get_fxn($a[12]);
-    if ($viruses_only) {
-	my $taxid = get_taxid($a[1]);
-	if (exists $Viruses{$taxid}) {
-	    unless (exists $Results{$a[0]}) {
-		push(@Order, $a[0]);
-	    }
-	    $Results{$a[0]}{$fxn} += $a[11];
-	}
+    my $fxn;
+    if (exists $Peg2Subsys{$a[1]}) {
+	$fxn = $Peg2Subsys{$a[1]};
     }
-    else {
-	unless (exists $Results{$a[0]}) {
-	    push(@Order, $a[0]);
-	}
-	$Results{$a[0]}{$fxn} += $a[11];
+    else { die "\n Cannot find subsys for thei peg: $a[1]\n\n"; }
+    unless (exists $Results{$a[0]}) {
+	push(@Order, $a[0]);
     }
+    $Results{$a[0]}{$fxn} += $a[11];
 }
 close(IN);
 
@@ -186,17 +190,12 @@ close(OUT);
 
 open(OUT,">$out_whole_set") || die "\n Cannot open the file: $out_whole_set\n";
 foreach my $i (sort { $ViromeResults{$b} <=> $ViromeResults{$a} } keys %ViromeResults) {
-    print OUT $ViromeResults{$i} . "\t" . $i . "\n";
+    if (exists $SubsysString{$i}) {
+	print OUT $ViromeResults{$i} . "\t" . $SubsysString{$i} . "\n";
+    }
+    else { die "\n Cannot find the string for: $i\n\n"; }
 }
 close(OUT);
-
-sub get_taxid
-{
-    my $s = $_[0];
-    $s =~ s/fig\|//;
-    $s =~ s/\..*//;
-    return $s;
-}
 
 sub get_fxn
 {
