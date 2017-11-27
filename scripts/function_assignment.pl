@@ -103,6 +103,11 @@ pod2usage(-verbose => 2)  if ($manual);
 pod2usage( {-exitval => 0, -verbose => 2, -output => \*STDERR} )  if ($help);
 pod2usage( -msg  => "\n\n ERROR!  Required argument --btab not found.\n\n", -exitval => 2, -verbose => 1)  if (! $btab );
 pod2usage( -msg  => "\n\n ERROR!  Required argument -outfile not found.\n\n", -exitval => 2, -verbose => 1)  if (! $outfile);
+if ($abundance) {
+    if ($abundance !~ m/orf/i) {
+        print STDERR "\nWARNING: Make sure your abundance file is an ORF abundance file: $abundance\n\n";
+    }
+}
 
 my %Abundance;
 my @Order;
