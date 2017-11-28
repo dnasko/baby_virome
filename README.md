@@ -59,4 +59,22 @@ Next, BLAST the peptide ORFs against the SEED and Phage SEED databases. Feel fre
 
 Next we'll parse through the tabular output for results.
 
-*Rev DJN 20Nov2017*
+### Krona plots
+
+Krona can be a great tool for exploring hierarchical data. Fortunatly your taxonomy and functional results are hierarchical. We can generate a functional Krona plot using the following:
+
+```bash
+./scripts/function_assignment_2_krona.pl --btab=seed.btab \
+	--subsys2peg=./BabyViromeDB/subsystems2peg \
+	--subsys=./BabyViromeDB/subsys.txt \
+	--abundance=orf_abundance.txt \
+	--out=dec_virus_functions.txt
+```
+
+Below is an example Krona plot using SEED subsystems:
+
+![alt text](https://github.com/dnasko/baby_virome/raw/master/src/common/images/example_1.png "Example 1")
+
+Be sure to cite Ondov, B. D., Bergman, N. H., & Phillippy, A. M. (2011). Interactive metagenomic visualization in a Web browser. BMC bioinformatics, 12(1), 385.
+
+*Rev DJN 27Nov2017*

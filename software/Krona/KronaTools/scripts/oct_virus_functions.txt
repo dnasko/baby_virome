@@ -1,0 +1,309 @@
+13725.3897670993	Phages, Prophages, Transposable elements	Bacteriophage structural proteins	Phage_capsid_proteins	Phage capsid and scaffold	
+7594.42271938157	Phages, Prophages, Transposable elements	Bacteriophage structural proteins	Phage_capsid_proteins	Phage major capsid protein	
+2889.74176173985	Phages, Prophages, Transposable elements	Bacteriophage structural proteins	Phage_capsid_proteins	Phage capsid assembly	
+1754.30151136101	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Phage terminase, large subunit [SA bacteriophages 11, Mu50B]	
+840.781792352713	Nucleosides and Nucleotides		Ribonucleotide_reduction	Ribonucleotide reductase of class II (coenzyme B12-dependent) (EC 1.17.4.1)	
+777.202095178827	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Tail tape-measure protein [Bacteriophage A118]	
+492.610479886689	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Protein gp47, recombination-related [Bacteriophage A118]	
+490.302642481287	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Endolysin, L-alanyl-D-glutamate peptidase (EC 3.4.-.-) [Bacteriophage A118]	
+393.651718911089	Phages, Prophages, Transposable elements	Bacteriophage structural proteins	Phage_capsid_proteins	Prohead core scaffold protein and protease	
+355.396505373249	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Deoxyuridine 5'-triphosphate nucleotidohydrolase (EC 3.6.1.23) [SA bacteriophages 11, Mu50B]	
+321.836435292829	Phages, Prophages, Transposable elements	Bacteriophage structural proteins	Phage_capsid_proteins	Phage minor capsid protein	
+193.524550067264	Phages, Prophages, Transposable elements	Bacteriophage structural proteins	Phage_capsid_proteins	Phage head completion protein	
+165.322242336057	Nucleosides and Nucleotides		Ribonucleotide_reduction	Ribonucleotide reductase of class Ia (aerobic), alpha subunit (EC 1.17.4.1)	
+116.132819694186	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Tape measure protein [SA bacteriophages 11, Mu50B]	
+114.21608932911	Cell Wall and Capsule	Gram-Negative cell wall components	LOS_core_oligosaccharide_biosynthesis	Lipopolysaccharide 1,2-N-acetylglucosaminetransferase (EC 2.4.1.56)	
+110.900586723522	Nucleosides and Nucleotides		Ribonucleotide_reduction	Ribonucleotide reductase of class Ia (aerobic), beta subunit (EC 1.17.4.1)	
+99.6476240302532	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Capsular_heptose_biosynthesis	GDP-mannose 4,6-dehydratase (EC 4.2.1.47)	
+84.2114422627561	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Integrase [Bacteriophage A118]	
+78.7365731411843	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Protein gp49, replication initiation [Bacteriophage A118]	
+75.6995638930677	Phages, Prophages, Transposable elements	Bacteriophage structural proteins	Phage_capsid_proteins	Phage capsid protein	
+67.5329374818752	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	DNA helicase [SA bacteriophages 11, Mu50B]	
+56.5718192680785	Protein Metabolism	Protein processing and modification	Inteins	intein-containing	
+48.4911633091608	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	CI-like repressor [SA bacteriophages 11, Mu50B]	
+41.2551128079078	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Hypothetical protein, PV83 orf22 homolog [SA bacteriophages 11, Mu50B]	
+41.2429945767392	DNA Metabolism	DNA replication	DNA-replication	DNA primase (EC 2.7.7.-)	
+40.3152302232371	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Lytic enzyme, amidase [SA bacteriophages 11, Mu50B]	
+33.7202964948671	Photosynthesis	Electron transport and photophosphorylation	Photosystem_II	photosystem II protein D1 (PsbA)	
+33.1640642526254	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Terminase large subunit [Bacteriophage A118]	
+32.8827444276539	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Integrase regulator RinA [SA bacteriophages 11, Mu50B]	
+28.1278097977637	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Hypothetical protein, PV83 orf19 homolog [SA bacteriophages 11, Mu50B]	
+23.3037461478053	Cell Wall and Capsule	Gram-Negative cell wall components	Lipid_A-Ara4N_pathway_(_Polymyxin_resistance_)	UDP-4-amino-4-deoxy-L-arabinose--oxoglutarate aminotransferase (EC 2.6.1.-)	
+23.2072326646022	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	phi 11 orf37 homolog [SA bacteriophages 11, Mu50B]	
+22.1984655447979	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Phage terminase, small subunit [SA bacteriophages 11, Mu50B]	
+22.17600451697	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Recombinational DNA repair protein RecT (prophage associated)	
+21.133688022582	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Antirepressor [SA bacteriophages 11, Mu50B]	
+19.2898553217528	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Protein gp63 [Bacteriophage A118]	
+16.1473161650663	DNA Metabolism		DNA_structural_proteins,_bacterial	DNA-binding protein HBsu	
+16.0117791225192	Iron acquisition and metabolism	Siderophores	Siderophore_Enterobactin	Proofreading thioesterase in enterobactin biosynthesis EntH	
+15.5000859342487	Clustering-based subsystems	Type III secretion system, extended	Type_III_secretion_systems,_extended	Invasion protein IagB precursor	
+15.1630793419004	Stress Response	Oxidative stress	Glutathione:_Redox_cycle	Glutaredoxin	
+13.8446958206473	RNA Metabolism	RNA processing and modification	Ribonuclease_H	Ribonuclease HI (EC 3.1.26.4)	
+11.7122660296437	Protein Metabolism	Protein degradation	Proteolysis_in_bacteria,_ATP-dependent	ATP-dependent Clp protease proteolytic subunit (EC 3.4.21.92)	
+11.2331784623627	Cell Wall and Capsule	Gram-Negative cell wall components	Lipid_A-Ara4N_pathway_(_Polymyxin_resistance_)	Polymyxin resistance protein ArnC, glycosyl transferase (EC 2.4.-.-)	
+10.5805957796605	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Capsular_heptose_biosynthesis	GDP-L-fucose synthetase (EC 1.1.1.271)	
+9.84495218292136	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Molybdenum_cofactor_biosynthesis	GTP cyclohydrolase I (EC 3.5.4.16) type 1	
+9.77535696573165	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Terminase small subunit [Bacteriophage A118]	
+9.65474779877048	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Maltose/maltodextrin ABC transporter, permease protein MalF	
+9.56263405506611	Cofactors, Vitamins, Prosthetic Groups, Pigments	NAD and NADP	NAD_and_NADP_cofactor_biosynthesis_global	Ribosyl nicotinamide transporter, PnuC-like	
+8.65672015558733	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Lysine_degradation	L-lysine permease	
+8.3850602075283	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Molybdenum_cofactor_biosynthesis	Molybdenum cofactor biosynthesis protein MoaA	
+8.35691868587703	Carbohydrates	Monosaccharides	D-Galacturonate_and_D-Glucuronate_Utilization	Uronate isomerase (EC 5.3.1.12)	
+7.99710910678507	DNA Metabolism		Restriction-Modification_System	Type III restriction-modification system methylation subunit (EC 2.1.1.72)	
+7.9357385178481	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Transcriptional activator of maltose regulon, MalT	
+7.48756710439133	Carbohydrates	Monosaccharides	D-Galacturonate_and_D-Glucuronate_Utilization	Mannonate dehydratase (EC 4.2.1.8)	
+6.95952475700107	DNA Metabolism	DNA replication	DNA-replication	DNA polymerase I (EC 2.7.7.7)	
+6.95064856457507	Carbohydrates	Central carbohydrate metabolism	Entner-Doudoroff_Pathway	Phosphoglycerate mutase (EC 5.4.2.1)	
+6.93295633957667	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Sugar phosphate isomerases/epimerases family protein YcjR	
+6.77293563874506	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Colanic_acid_biosynthesis	Colanic acid biosynthesis glycosyl transferase WcaE	
+6.42799070895531	Carbohydrates	Organic acids	Methylcitrate_cycle	2-methylcitrate synthase (EC 2.3.3.5)	
+6.22258887015359	Cofactors, Vitamins, Prosthetic Groups, Pigments	NAD and NADP	NAD_and_NADP_cofactor_biosynthesis_global	C-terminal domain of CinA type S homolog	
+6.035015531716	Carbohydrates	Monosaccharides	Xylose_utilization	Alpha-xylosidase (EC 3.2.1.-)	
+5.82671767349122	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Colanic_acid_biosynthesis	Colanic acid biosynthesis glycosyl transferase WcaL	
+5.82367793150051	Stress Response	Heat shock	Heat_shock_dnaK_gene_cluster_extended	Ribosomal RNA small subunit methyltransferase E (EC 2.1.1.-)	
+5.59877702287171	Cell Wall and Capsule	Gram-Negative cell wall components	LOS_core_oligosaccharide_biosynthesis	ADP-L-glycero-D-manno-heptose-6-epimerase (EC 5.1.3.20)	
+5.57348577600016	Carbohydrates	Aminosugars	Chitin_and_N-acetylglucosamine_utilization	Phosphatase NagD predicted to act in N-acetylglucosamine utilization subsystem	
+5.41092138334701	Carbohydrates	Di- and oligosaccharides	Beta-Glucoside_Metabolism	Beta-glucosidase (EC 3.2.1.21)	
+5.3488230252149	Cofactors, Vitamins, Prosthetic Groups, Pigments	NAD and NADP	NAD_and_NADP_cofactor_biosynthesis_global	N-Ribosylnicotinamide phosphorylase (EC 2.4.2.1)	
+5.30130271098142	Carbohydrates	Monosaccharides	L-Arabinose_utilization	Protein AraJ precursor	
+5.20683949898563	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Repressor (cro-like) [Bacteriophage A118]	
+5.15328498437815	Amino Acids and Derivatives	Branched-chain amino acids	Branched-Chain_Amino_Acid_Biosynthesis	Acetolactate synthase large subunit (EC 2.2.1.6)	
+5.01931253566449	Carbohydrates	Monosaccharides	D-Galacturonate_and_D-Glucuronate_Utilization	Altronate oxidoreductase (EC 1.1.1.58)	
+4.89746879377759	Carbohydrates	Monosaccharides	D-Sorbitol(D-Glucitol)_and_L-Sorbose_Utilization	PTS system, glucitol/sorbitol-specific IIA component (EC 2.7.1.69)	
+4.89216480202883	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Maltodextrin glucosidase (EC 3.2.1.20)	
+4.80717465912792	Nucleosides and Nucleotides	Purines	Purine_conversions	GMP reductase (EC 1.7.1.7)	
+4.59061677520155	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	ABC-type sugar transport system, periplasmic binding protein YcjN	
+4.55290261852663	Stress Response	Oxidative stress	Glutathione:_Redox_cycle	Glutaredoxin-like protein NrdH, required for reduction of Ribonucleotide reductase class Ib	
+4.49803887137599	Nucleosides and Nucleotides		Ribonucleotide_reduction	Ribonucleotide reductase of class Ib (aerobic), beta subunit (EC 1.17.4.1)	
+4.40442736694421	Virulence, Disease and Defense	Resistance to antibiotics and toxic compounds	Multidrug_Resistance_Efflux_Pumps	Acriflavin resistance protein	
+4.34528440910408	Carbohydrates	Di- and oligosaccharides	Lactose_and_Galactose_Uptake_and_Utilization	Galactokinase (EC 2.7.1.6)	
+4.03885685822567	Membrane Transport		Ton_and_Tol_transport_systems	Outer membrane lipoprotein omp16 precursor	
+3.88527347278032	Carbohydrates	Organic acids	Methylcitrate_cycle	2-methylcitrate dehydratase (EC 4.2.1.79)	
+3.71747973345973	Potassium metabolism		Glutathione-regulated_potassium-efflux_system_and_associated_functions	Glutathione-regulated potassium-efflux system ATP-binding protein	
+3.71737738468398	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Colanic_acid_biosynthesis	Colanic acid biosynthesis acetyltransferase WcaF (EC 2.3.1.-)	
+3.6623681254995	Carbohydrates	Monosaccharides	L-Arabinose_utilization	Ribulokinase (EC 2.7.1.16)	
+3.6557844639126	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Antirepressor [Bacteriophage A118]	
+3.64262704355946	Virulence, Disease and Defense	Resistance to antibiotics and toxic compounds	Zinc_resistance	Sensor protein of zinc sigma-54-dependent two-component system	
+3.62872855592648	DNA Metabolism	DNA replication	DNA-replication	DNA polymerase III alpha subunit (EC 2.7.7.7)	
+3.59083519727122	Carbohydrates	Monosaccharides	L-rhamnose_utilization	Rhamnogalacturonides degradation protein RhiN	
+3.57387521913791	Protein Metabolism	Protein biosynthesis	Ribosome_biogenesis_bacterial	Ribosomal protein S6 glutaminyl transferase	
+3.5593781452784	Carbohydrates	Fermentation	Fermentations:_Mixed_acid	Alcohol dehydrogenase (EC 1.1.1.1)	
+3.52585488704098	Protein Metabolism	Protein degradation	Proteolysis_in_bacteria,_ATP-dependent	ATPase, AFG1 family	
+3.5238696053158	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Maltose regulon regulatory protein MalI (repressor for malXY)	
+3.50885840550198	DNA Metabolism	DNA repair	DNA_repair,_UvrABC_system	Excinuclease cho (excinuclease ABC alternative C subunit)	
+3.45087716717245	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme A	Coenzyme_A_Biosynthesis	Pantothenate kinase (EC 2.7.1.33)	
+3.42697051030227	Iron acquisition and metabolism	Siderophores	Siderophore_Enterobactin	Enterobactin exporter EntS	
+3.42652187622757	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria_phi-A118-like_prophages	Repressor (CI-like) [Bacteriophage A118]	
+3.36127072842432	Carbohydrates	Monosaccharides	D-galactarate,_D-glucarate_and_D-glycerate_catabolism	Glycerate kinase (EC 2.7.1.31)	
+3.36110352948075	Motility and Chemotaxis		Bacterial_Chemotaxis	Methyl-accepting chemotaxis protein II (aspartate chemoreceptor protein)	
+3.35241080604639	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Periplasmic alpha-amylase (EC 3.2.1.1)	
+3.33911348489104	Membrane Transport	Protein secretion system, Type III	Type_III_secretion_system_orphans	BarA sensory histidine kinase (= VarS = GacS)	
+3.18961892022655	Stress Response	Heat shock	Heat_shock_dnaK_gene_cluster_extended	Chaperone protein DnaJ	
+3.14400749685625	Nitrogen Metabolism		Nitrate_and_nitrite_ammonification	Nitrate/nitrite sensor protein (EC 2.7.3.-)	
+3.08662065496002	Membrane Transport	Uni- Sym- and Antiporters	Na(+)_H(+)_antiporter	Na+/H+ antiporter NhaA type	
+3.02726731200999	DNA Metabolism		YcfH	Putative deoxyribonuclease YcfH	
+3.02040887166992	Regulation and Cell signaling		Orphan_regulatory_proteins	Putative two-component system response regulator YedW	
+2.98483994707975	Cell Division and Cell Cycle		MukBEF_Chromosome_Condensation	Membrane Protein Functionally coupled to the MukBEF Chromosome Partitioning Mechanism	
+2.97222783126244	Carbohydrates	Monosaccharides	D-Sorbitol(D-Glucitol)_and_L-Sorbose_Utilization	Glucitol operon activator protein	
+2.90773829153205	Cell Wall and Capsule	Gram-Negative cell wall components	LOS_core_oligosaccharide_biosynthesis	UDP-galactose:(galactosyl) LPS alpha1,2-galactosyltransferase WaaW (EC 2.4.1.-)	
+2.86524985743974	Protein Metabolism	Selenoproteins	Selenocysteine_metabolism	L-seryl-tRNA(Sec) selenium transferase (EC 2.9.1.1)	
+2.8165574882146	Amino Acids and Derivatives	Alanine, serine, and glycine	Glycine_Biosynthesis	L-threonine 3-dehydrogenase (EC 1.1.1.103)	
+2.7625504329077	RNA Metabolism	RNA processing and modification	ATP-dependent_RNA_helicases,_bacterial	ATP-dependent RNA helicase SrmB	
+2.73150324330558	Carbohydrates	Sugar alcohols	Glycerol_and_Glycerol-3-phosphate_Uptake_and_Utilization	Glycerophosphoryl diester phosphodiesterase (EC 3.1.4.46)	
+2.72617285260313	Cell Wall and Capsule	Gram-Negative cell wall components	Lipid_A_modifications	Phosphoethanolamine transferase EptA specific for the 1 phosphate group of core-lipid A	
+2.70768349283009	Nucleosides and Nucleotides	Purines	Purine_conversions	Inosine-uridine preferring nucleoside hydrolase (EC 3.2.2.1)	
+2.69697011690563	Regulation and Cell signaling		Orphan_regulatory_proteins	Copper sensory histidine kinase CpxA	
+2.68346422051709	Nitrogen Metabolism		Nitrate_and_nitrite_ammonification	Nitrate/nitrite response regulator protein	
+2.63890707034037	Amino Acids and Derivatives	Proline and 4-hydroxyproline	Proline,_4-hydroxyproline_uptake_and_utilization	Proline-specific permease proY	
+2.63107601446957	Carbohydrates	Di- and oligosaccharides	Lactose_and_Galactose_Uptake_and_Utilization	Mgl repressor and galactose ultrainduction factor GalS, HTH-type transcriptional regulator	
+2.62516589468783	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Sialic_Acid_Metabolism	Sialic acid transporter (permease) NanT	
+2.61216576250725	Carbohydrates	Monosaccharides	D-galactarate,_D-glucarate_and_D-glycerate_catabolism	Glucarate dehydratase (EC 4.2.1.40)	
+2.60718351574595	Virulence, Disease and Defense	Resistance to antibiotics and toxic compounds	Multidrug_Resistance_Efflux_Pumps	RND efflux system, outer membrane lipoprotein CmeC	
+2.58761062365399	Regulation and Cell signaling		Orphan_regulatory_proteins	Sensory histidine kinase in two-component regulatory system with RstA	
+2.58757736601472	Protein Metabolism	Protein biosynthesis	Ribosome_LSU_bacterial	LSU ribosomal protein L5p (L11e)	
+2.57273801021686	Carbohydrates	Monosaccharides	D-Sorbitol(D-Glucitol)_and_L-Sorbose_Utilization	PTS system, glucitol/sorbitol-specific IIC component (EC 2.7.1.69)	
+2.53947461859819	Nucleosides and Nucleotides	Detoxification	Nudix_proteins_(nucleoside_triphosphate_hydrolases)	ADP-ribose pyrophosphatase (EC 3.6.1.13)	
+2.45703677701291	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Molybdenum_cofactor_biosynthesis	Molybdenum transport system permease protein ModB (TC 3.A.1.8.1)	
+2.45324720271018	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Rhamnose_containing_glycans	dTDP-glucose 4,6-dehydratase (EC 4.2.1.46)	
+2.45077330387688	Nucleosides and Nucleotides	Detoxification	Nudix_proteins_(nucleoside_triphosphate_hydrolases)	5-methyl-dCTP pyrophosphohydrolase (EC 3.6.1.-)	
+2.39178708533324	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Capsular_heptose_biosynthesis	D-glycero-D-manno-heptose 1,7-bisphosphate phosphatase (EC 3.1.1.-)	
+2.38907679649049	Carbohydrates	Monosaccharides	L-Arabinose_utilization	L-arabinose isomerase (EC 5.3.1.4)	
+2.37324610017562	DNA Metabolism		DNA_structural_proteins,_bacterial	DNA-binding protein HU-beta	
+2.37188717570797	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Murein_hydrolase_regulation_and_cell_death	tRNA-dihydrouridine synthase C (EC 1.-.-.-)	
+2.35098111830007	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Putative oxidoreductase YcjS (EC 1.-.-.-), NADH-binding	
+2.34721962411585	DNA Metabolism	DNA replication	DNA-replication	Chromosomal replication initiator protein DnaA	
+2.32498067849546	Miscellaneous		ZZ_gjo_need_homes	MFS superfamily export protein YceL	
+2.28819556031455	Stress Response	Oxidative stress	Glutathionylspermidine_and_Trypanothione	Similarity with glutathionylspermidine synthase (EC 6.3.1.8), group 1	
+2.25450242305095	Carbohydrates	Di- and oligosaccharides	Beta-Glucoside_Metabolism	Periplasmic beta-glucosidase (EC 3.2.1.21)	
+2.22159597708436	Carbohydrates	Monosaccharides	L-Arabinose_utilization	Arabinose operon regulatory protein	
+2.21195346989465	Amino Acids and Derivatives	Proline and 4-hydroxyproline	Proline,_4-hydroxyproline_uptake_and_utilization	Proline iminopeptidase (EC 3.4.11.5)	
+2.15006766700173	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Rhamnose_containing_glycans	UDP-glucose 4-epimerase (EC 5.1.3.2)	
+2.1168033488223	Carbohydrates	Aminosugars	Chitin_and_N-acetylglucosamine_utilization	Chitobiose-specific regulator ChbR, AraC family	
+2.09659146311029	Stress Response	Oxidative stress	Glutathione:_Biosynthesis_and_gamma-glutamyl_cycle	Gamma-glutamyltranspeptidase (EC 2.3.2.2)	
+2.05142757208261	Nucleosides and Nucleotides		Ribonucleotide_reduction	Ribonucleotide reductase of class Ib (aerobic), alpha subunit (EC 1.17.4.1)	
+1.99479080757438	Amino Acids and Derivatives	Alanine, serine, and glycine	Alanine_biosynthesis	Cysteine desulfurase (EC 2.8.1.7), IscS subfamily	
+1.98721661428213	Clustering-based subsystems		CBSS-214092.1.peg.3450	FIG139552: Putative protease	
+1.91467973120318	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	4-Hydroxyphenylacetic_acid_catabolic_pathway	5-carboxymethyl-2-oxo-hex-3- ene-1,7-dioate decarboxylase (EC 4.1.1.68)	
+1.89019056334897	DNA Metabolism	DNA replication	DNA-replication	Holliday junction DNA helicase RuvA	
+1.87953245900733	Membrane Transport	Protein secretion system, Type III	Type_III_secretion_system_orphans	BarA-associated response regulator UvrY (= GacA = SirA)	
+1.86971126048523	Phosphorus Metabolism		Phosphate_metabolism	Phosphate ABC transporter, periplasmic phosphate-binding protein PstS (TC 3.A.1.7.1)	
+1.86248590141272	Carbohydrates	Monosaccharides	L-rhamnose_utilization	L-rhamnose-proton symporter	
+1.85228623901747	Carbohydrates	Monosaccharides	Hexose_Phosphate_Uptake_System	Hexose phosphate uptake regulatory protein UhpC	
+1.80589022200897	Carbohydrates	Monosaccharides	L-Arabinose_utilization	Arabinose-proton symporter	
+1.79967060542947	Protein Metabolism	Protein folding	Periplasmic_disulfide_interchange	Periplasmic thiol:disulfide oxidoreductase DsbB, required for DsbA reoxidation	
+1.79123261397845	Virulence, Disease and Defense	Resistance to antibiotics and toxic compounds	Copper_homeostasis	Blue copper oxidase CueO precursor	
+1.76129899311104	Carbohydrates	Monosaccharides	D-Galacturonate_and_D-Glucuronate_Utilization	4-deoxy-L-threo-5-hexosulose-uronate ketol-isomerase (EC 5.3.1.17)	
+1.72084421464236	DNA Metabolism	DNA replication	DNA-replication	ATP-dependent DNA helicase RecG (EC 3.6.1.-)	
+1.6792809026854	Carbohydrates	Monosaccharides	D-Sorbitol(D-Glucitol)_and_L-Sorbose_Utilization	Glucitol operon GutQ protein	
+1.67074646780785	Carbohydrates	Monosaccharides	D-Galacturonate_and_D-Glucuronate_Utilization	Hexuronate transporter	
+1.62762152173355	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Lysine_degradation	Lysine decarboxylase 2, constitutive (EC 4.1.1.18)	
+1.59193620939388	Clustering-based subsystems		Conserved_gene_cluster_associated_with_Met-tRNA_formyltransferase	Methionyl-tRNA formyltransferase (EC 2.1.2.9)	
+1.59164774199102	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Zinc-type alcohol dehydrogenase YcjQ	
+1.57617203547124	Regulation and Cell signaling		Orphan_regulatory_proteins	Putative two component system histidine kinase YedV	
+1.56794931149624	Membrane Transport	Protein secretion system, Type III	Type_III_secretion_system_orphans	Type III secretion and flagellar regulator RtsA	
+1.56235601321114	Membrane Transport	Protein secretion system, Type VIII (Extracellular nucleation/precipitation pathway, ENP)	Curli_production	Curli production assembly/transport component CsgG	
+1.5430989815082	Carbohydrates	Monosaccharides	L-rhamnose_utilization	L-rhamnose operon regulatory protein RhaS	
+1.52785520001198	Membrane Transport	Protein secretion system, Type III	Type_III_secretion_system_orphans	Type III secretion transcriptional regulator HilD	
+1.48999130234393	Clustering-based subsystems		Bacterial_Cell_Division	Cell division protein FtsX	
+1.44274884914532	Respiration	Electron accepting reactions	Terminal_cytochrome_d_ubiquinol_oxidases	Transport ATP-binding protein CydD	
+1.41631484042397	Carbohydrates	Central carbohydrate metabolism	TCA_Cycle	Transcriptional regulator of succinyl CoA synthetase operon	
+1.39301885189738	Carbohydrates	Monosaccharides	Mannose_Metabolism	Mannose-1-phosphate guanylyltransferase (GDP) (EC 2.7.7.22)	
+1.39218780618656	Carbohydrates	Monosaccharides	D-Galacturonate_and_D-Glucuronate_Utilization	Alpha-glucosidase (EC 3.2.1.20)	
+1.37356915471995	Respiration	Electron accepting reactions	Tetrathionate_respiration	Tetrathionate reductase two-component response regulator	
+1.36981371039034	Phosphorus Metabolism		Phosphate_metabolism	Phosphate regulon transcriptional regulatory protein PhoB (SphR)	
+1.34756509522547	RNA Metabolism	RNA processing and modification	ATP-dependent_RNA_helicases,_bacterial	ATP-dependent RNA helicase RhlE	
+1.31322313833634	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal_phi-Mu50B-like_prophages	Iron-sulfur cluster assembly protein SufB	
+1.29338718351245	Carbohydrates	Monosaccharides	Mannose_Metabolism	Phosphomannomutase (EC 5.4.2.8)	
+1.29326761464386	Cell Wall and Capsule		Peptidoglycan_Biosynthesis	Glutamate racemase (EC 5.1.1.3)	
+1.28691067916829	Cell Wall and Capsule	Gram-Negative cell wall components	KDO2-Lipid_A_biosynthesis	Acyl-[acyl-carrier-protein]--UDP-N-acetylglucosamine O-acyltransferase (EC 2.3.1.129)	
+1.2648750030792	Carbohydrates	Di- and oligosaccharides	Beta-Glucoside_Metabolism	Cellobiose phosphotransferase system YdjC-like protein	
+1.25966403440855	Cell Wall and Capsule	Gram-Negative cell wall components	Lipid_A_modifications	Transcriptional regulatory protein basR/pmrA	
+1.25628568214236	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Colanic_acid_biosynthesis	Colanic acid biosynthsis UDP-glucose lipid carrier transferase WcaJ	
+1.24372928437329	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Arginine_and_Ornithine_Degradation	Histidine ABC transporter, ATP-binding protein HisP (TC 3.A.1.3.1)	
+1.24046100388401	Regulation and Cell signaling		CytR_regulation	Transcriptional (co)regulator CytR	
+1.21817727327532	Iron acquisition and metabolism	Siderophores	Siderophore_Enterobactin	Enterobactin synthetase component F, serine activating enzyme (EC 2.7.7.-)	
+1.21524110677238	Cell Wall and Capsule	Gram-Negative cell wall components	KDO2-Lipid_A_biosynthesis	3-deoxy-manno-octulosonate cytidylyltransferase (EC 2.7.7.38)	
+1.20844175896938	Carbohydrates	Sugar alcohols	Glycerol_and_Glycerol-3-phosphate_Uptake_and_Utilization	Glycerol-3-phosphate ABC transporter, periplasmic glycerol-3-phosphate-binding protein (TC 3.A.1.1.3)	
+1.20740481740887	Carbohydrates	Monosaccharides	Xylose_utilization	D-xylose proton-symporter XylE	
+1.16067740281199	DNA Metabolism	DNA replication	DNA-replication	DNA polymerase III delta prime subunit (EC 2.7.7.7)	
+1.15093513880697	Carbohydrates	Central carbohydrate metabolism	Pyruvate_metabolism_II:_acetyl-CoA,_acetogenesis_from_pyruvate	Pyruvate decarboxylase (EC 4.1.1.1)	
+1.14902540129789	Phosphorus Metabolism		Alkylphosphonate_utilization	Alkylphosphonate utilization operon protein PhnA	
+1.14754205172323	Carbohydrates	Monosaccharides	Mannose_Metabolism	Mannose-6-phosphate isomerase (EC 5.3.1.8)	
+1.14547314361027	DNA Metabolism	DNA repair	DNA_repair,_bacterial_RecFOR_pathway	ATP-dependent DNA helicase RecQ	
+1.10836341564605	Carbohydrates	Monosaccharides	L-rhamnose_utilization	Rhamnulokinase (EC 2.7.1.5)	
+1.08919021828437	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Murein_hydrolase_regulation_and_cell_death	Holin-like protein CidA	
+1.06360055736064	Nitrogen Metabolism		Nitrosative_stress	NADH oxidoreductase hcr (EC 1.-.-.-)	
+1.05086470349632	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Molybdenum_cofactor_biosynthesis	Molybdopterin biosynthesis Mog protein, molybdochelatase	
+1.04850050099342	DNA Metabolism	DNA repair	DNA_repair,_bacterial	DNA repair protein RecN	
+1.03153781026527	Carbohydrates	Monosaccharides	Xylose_utilization	Xylose activator XylR (AraC family)	
+1.02646352481539	Nucleosides and Nucleotides	Purines	Purine_conversions	Guanylate kinase (EC 2.7.4.8)	
+1.02085916788544	Carbohydrates	Organic acids	Methylcitrate_cycle	Methylisocitrate lyase (EC 4.1.3.30)	
+1.01983506037655	Respiration		Formate_hydrogenase	Formate hydrogenlyase regulatory protein HycA	
+1.01829514730693	Nitrogen Metabolism		Nitrate_and_nitrite_ammonification	Nitrite reductase [NAD(P)H] large subunit (EC 1.7.1.4)	
+1.00858491550197	Carbohydrates	Aminosugars	Chitin_and_N-acetylglucosamine_utilization	N-acetylglucosamine-6P-responsive transcriptional repressor NagC, ROK family	
+0.995339967188368	Iron acquisition and metabolism		Hemin_transport_system	Periplasmic hemin-binding protein	
+0.993267062015466	Carbohydrates	Monosaccharides	Xylose_utilization	Xyloside transporter XynT	
+0.986187092056835	Carbohydrates	Di- and oligosaccharides	Trehalose_Uptake_and_Utilization	PTS system, glucose-specific IIA component (EC 2.7.1.69)	
+0.984615647132112	RNA Metabolism	RNA processing and modification	ATP-dependent_RNA_helicases,_bacterial	ATP-dependent RNA helicase DbpA	
+0.978878112144107	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Sialic_Acid_Metabolism	UDP-N-acetylglucosamine 2-epimerase (EC 5.1.3.14)	
+0.967579436430071	Carbohydrates	Monosaccharides	D-Sorbitol(D-Glucitol)_and_L-Sorbose_Utilization	Sorbitol-6-phosphate 2-dehydrogenase (EC 1.1.1.140)	
+0.962778288888852	Membrane Transport		Ton_and_Tol_transport_systems	Peptidoglycan-associated lipoprotein precursor	
+0.96151855293118	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Colanic_acid_biosynthesis	Colanic acid biosysnthesis glycosyl transferase WcaI	
+0.953408216042974	Carbohydrates	CO2 fixation	Calvin-Benson_cycle	Transketolase (EC 2.2.1.1)	
+0.92314589258476	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	4-Hydroxyphenylacetic_acid_catabolic_pathway	Transcriptional activator of 4-hydroxyphenylacetate 3-monooxygenase operon, XylS/AraC family	
+0.920879696617851	Cofactors, Vitamins, Prosthetic Groups, Pigments		Thiamin_biosynthesis	Thiamin ABC transporter, transmembrane component	
+0.917923002103375	Carbohydrates	Monosaccharides	Fructose_utilization	PTS system, fructose-specific IIC component (EC 2.7.1.69)	
+0.915279867173419	Respiration	Electron donating reactions	Respiratory_Complex_I	NADH-ubiquinone oxidoreductase chain N (EC 1.6.5.3)	
+0.911882428348161	Phosphorus Metabolism		Phosphate_metabolism	Phosphate transport system permease protein PstA (TC 3.A.1.7.1)	
+0.909176208834748	Protein Metabolism	Selenoproteins	Selenocysteine_metabolism	Selenide,water dikinase (EC 2.7.9.3)	
+0.902837226525574	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Molybdenum_cofactor_biosynthesis	Molybdenum ABC transporter, periplasmic molybdenum-binding protein ModA (TC 3.A.1.8.1)	
+0.897291552510111	Cofactors, Vitamins, Prosthetic Groups, Pigments		Thiamin_biosynthesis	Thiamin ABC transporter, substrate-binding component	
+0.896920156999966	Nitrogen Metabolism		Nitrosative_stress	Anaerobic nitric oxide reductase flavorubredoxin	
+0.8937463418655	Cell Wall and Capsule		Peptidoglycan_Biosynthesis	Monofunctional biosynthetic peptidoglycan transglycosylase (EC 2.4.2.-)	
+0.888945170423203	Protein Metabolism	Protein degradation	Protein_degradation	Nondeblocking aminopeptidase YpdE (X-X-[^PR]- specific)	
+0.879454357837309	Carbohydrates	Monosaccharides	D-galactarate,_D-glucarate_and_D-glycerate_catabolism	D-galactarate dehydratase (EC 4.2.1.42)	
+0.87642678591327	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Menaquinone_and_Phylloquinone_Biosynthesis	2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase (EC 4.2.99.20)	
+0.852980594666634	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Transcriptional regulator YcjW, LacI family, possibly involved in maltodextrin utilization pathway	
+0.848318572137899	Amino Acids and Derivatives	Branched-chain amino acids	Leucine_Biosynthesis	Probable transcriptional activator for leuABCD operon	
+0.845907891341826	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Isoprenoid_Biosynthesis	2-C-methyl-D-erythritol 2,4-cyclodiphosphate synthase (EC 4.6.1.12)	
+0.844718454740709	Amino Acids and Derivatives	Branched-chain amino acids	Branched-Chain_Amino_Acid_Biosynthesis	Dihydroxy-acid dehydratase (EC 4.2.1.9)	
+0.841676867315283	Motility and Chemotaxis	Flagellar motility in Prokaryota	Flagellar_motility	Signal transduction histidine kinase CheA (EC 2.7.3.-)	
+0.837817590049719	Amino Acids and Derivatives	Glutamine, glutamate, aspartate, asparagine; ammonia assimilation	Glutamine,_Glutamate,_Aspartate_and_Asparagine_Biosynthesis	Aspartate racemase (EC 5.1.1.13)	
+0.833109673434231	Carbohydrates	Monosaccharides	D-Sorbitol(D-Glucitol)_and_L-Sorbose_Utilization	PTS system, glucitol/sorbitol-specific IIB component and second of two IIC components (EC 2.7.1.69)	
+0.830207087471043	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Heme_and_Siroheme_Biosynthesis	Coproporphyrinogen III oxidase, oxygen-independent (EC 1.3.99.22)	
+0.827801929488928	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Molybdenum_cofactor_biosynthesis	GTP cyclohydrolase II (EC 3.5.4.25)	
+0.826002126488027	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Mlc, transcriptional repressor of MalT (the transcriptional activator of maltose regulon) and manXYZ operon	
+0.814970359717283	Cell Wall and Capsule		Peptidoglycan_Biosynthesis	Murein-DD-endopeptidase (EC 3.4.99.-)	
+0.813713807338241	Carbohydrates	Monosaccharides	D-ribose_utilization	Ribose ABC transport system, ATP-binding protein RbsA (TC 3.A.1.2.1)	
+0.810775283163811	Carbohydrates	Aminosugars	Chitin_and_N-acetylglucosamine_utilization	PTS system, chitobiose-specific IIA component (EC 2.7.1.69)	
+0.799452642991423	Carbohydrates	One-carbon Metabolism	Serine-glyoxylate_cycle	Succinate dehydrogenase flavoprotein subunit (EC 1.3.99.1)	
+0.796859907279122	DNA Metabolism	DNA repair	DNA_Repair_Base_Excision	Endonuclease VIII	
+0.795364118059229	Iron acquisition and metabolism	Siderophores	Siderophore_Aerobactin	Ferric hydroxamate outer membrane receptor FhuA	
+0.788077311526852	Cofactors, Vitamins, Prosthetic Groups, Pigments		Thiamin_biosynthesis	Thiazole biosynthesis protein ThiH	
+0.780991701333304	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Murein_hydrolase_regulation_and_cell_death	CidA-associated membrane protein CidB	
+0.776334727849205	Amino Acids and Derivatives	Glutamine, glutamate, aspartate, asparagine; ammonia assimilation	Glutamine,_Glutamate,_Aspartate_and_Asparagine_Biosynthesis	Asparagine synthetase [glutamine-hydrolyzing] (EC 6.3.5.4)	
+0.765909347550533	Carbohydrates	Central carbohydrate metabolism	TCA_Cycle	Citrate lyase gamma chain, acyl carrier protein (EC 4.1.3.6)	
+0.765728019874021	Cofactors, Vitamins, Prosthetic Groups, Pigments	Riboflavin, FMN, FAD	Riboflavin,_FMN_and_FAD_metabolism	Riboflavin synthase alpha chain (EC 2.5.1.9)	
+0.759149764160801	Stress Response	Oxidative stress	Glutaredoxins	Glutaredoxin-related protein	
+0.755959916034159	Membrane Transport		Ton_and_Tol_transport_systems	TonB-dependent hemin , ferrichrome receptor	
+0.7530991405714	Cofactors, Vitamins, Prosthetic Groups, Pigments	NAD and NADP	NAD_and_NADP_cofactor_biosynthesis_global	Quinolinate phosphoribosyltransferase [decarboxylating] (EC 2.4.2.19)	
+0.745834172928019	Carbohydrates	Monosaccharides	D-Sorbitol(D-Glucitol)_and_L-Sorbose_Utilization	Glucitol operon repressor	
+0.744921082774481	Stress Response		Hfl_operon	HflC protein	
+0.743088988034356	Carbohydrates	One-carbon Metabolism	Serine-glyoxylate_cycle	5,10-methylenetetrahydrofolate reductase (EC 1.5.1.20)	
+0.742152060272373	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Lysine_degradation	Lysine decarboxylase, inducible (EC 4.1.1.18)	
+0.737507788384948	DNA Metabolism	DNA repair	2-phosphoglycolate_salvage	Putative phosphatase YfbT	
+0.733700773242654	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	PTS system, maltose and glucose-specific IIC component (EC 2.7.1.69)	
+0.732484794883305	Nitrogen Metabolism		Nitrate_and_nitrite_ammonification	Respiratory nitrate reductase delta chain (EC 1.7.99.4)	
+0.718867361454518	Virulence, Disease and Defense	Resistance to antibiotics and toxic compounds	Multidrug_Resistance_Efflux_Pumps	Macrolide export ATP-binding/permease protein MacB (EC 3.6.3.-)	
+0.718583067817986	Carbohydrates	Monosaccharides	Fructose_utilization	Transaldolase (EC 2.2.1.2)	
+0.718520400120686	Motility and Chemotaxis	Flagellar motility in Prokaryota	Flagellum	Flagellar basal-body rod protein FlgG	
+0.718284338452527	Carbohydrates	Monosaccharides	D-gluconate_and_ketogluconates_metabolism	Hypothetical transcriptional regulator YqhC	
+0.709589989103849	Carbohydrates	CO2 fixation	Calvin-Benson_cycle	Transketolase, C-terminal section (EC 2.2.1.1)	
+0.698331995717735	DNA Metabolism	DNA replication	DNA-replication	Holliday junction DNA helicase RuvB	
+0.69665544469627	Carbohydrates	Aminosugars	Chitin_and_N-acetylglucosamine_utilization	N-acetylglucosamine-regulated outer membrane porin	
+0.694003812420207	Carbohydrates	Sugar alcohols	Glycerol_and_Glycerol-3-phosphate_Uptake_and_Utilization	Glycerol-3-phosphate regulon repressor, DeoR family	
+0.687261571935396	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Methionine_Biosynthesis	Homocysteine S-methyltransferase (EC 2.1.1.10)	
+0.669615756309572	Phosphorus Metabolism		Phosphate_metabolism	Phosphate regulon sensor protein PhoR (SphS) (EC 2.7.13.3)	
+0.669184634656578	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	4-Hydroxyphenylacetic_acid_catabolic_pathway	4-hydroxyphenylacetate symporter, major facilitator superfamily (MFS)	
+0.657741448466642	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Arginine_and_Ornithine_Degradation	Histidine ABC transporter, permease protein HisM (TC 3.A.1.3.1)	
+0.653414931939369	Respiration	Electron accepting reactions	Tetrathionate_respiration	Tetrathionate reductase sensory transduction histidine kinase	
+0.653249707631181	Carbohydrates	Monosaccharides	D-Galacturonate_and_D-Glucuronate_Utilization	D-mannonate oxidoreductase (EC 1.1.1.57)	
+0.650557035982315	Nucleosides and Nucleotides	Purines	De_Novo_Purine_Biosynthesis	Phosphoribosylformylglycinamidine cyclo-ligase (EC 6.3.3.1)	
+0.640000170635873	Carbohydrates	Sugar alcohols	Glycerol_and_Glycerol-3-phosphate_Uptake_and_Utilization	Glycerol-3-phosphate ABC transporter, ATP-binding protein UgpC (TC 3.A.1.1.3)	
+0.636774483757551	Cofactors, Vitamins, Prosthetic Groups, Pigments	NAD and NADP	NAD_and_NADP_cofactor_biosynthesis_global	L-aspartate oxidase (EC 1.4.3.16)	
+0.635318444541642	Carbohydrates	Monosaccharides	D-Galacturonate_and_D-Glucuronate_Utilization	2-dehydro-3-deoxygluconate kinase (EC 2.7.1.45)	
+0.63496252384442	Carbohydrates	Fermentation	Acetyl-CoA_fermentation_to_Butyrate	Enoyl-CoA hydratase (EC 4.2.1.17)	
+0.631263453607014	Stress Response	Oxidative stress	Redox-dependent_regulation_of_nucleus_processes	NAD-dependent glyceraldehyde-3-phosphate dehydrogenase (EC 1.2.1.12)	
+0.625182442077271	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Polyamine_Metabolism	Ornithine decarboxylase (EC 4.1.1.17)	
+0.615408516036809	RNA Metabolism	RNA processing and modification	Queuosine-Archaeosine_Biosynthesis	Permease of the drug/metabolite transporter (DMT) superfamily	
+0.602971534117624	Sulfur Metabolism		Galactosylceramide_and_Sulfatide_metabolism	Beta-galactosidase (EC 3.2.1.23)	
+0.600341751725834	Cell Wall and Capsule	Gram-Negative cell wall components	KDO2-Lipid_A_biosynthesis	Arabinose 5-phosphate isomerase (EC 5.3.1.13)	
+0.596979741514443	Miscellaneous		ZZ_gjo_need_homes	Tyrosine-specific transport protein	
+0.59365923243241	Virulence, Disease and Defense	Resistance to antibiotics and toxic compounds	Zinc_resistance	Response regulator of zinc sigma-54-dependent two-component system	
+0.583393569491336	Carbohydrates	Monosaccharides	D-galactarate,_D-glucarate_and_D-glycerate_catabolism	Sugar diacid utilization regulator SdaR	
+0.559848217827835	Phosphorus Metabolism		Alkylphosphonate_utilization	PhnO protein	
+0.549665355014472	Respiration		Formate_hydrogenase	Formate hydrogenlyase subunit 6	
+0.547663506874684	Protein Metabolism	Protein degradation	Protein_degradation	Dipeptidyl carboxypeptidase Dcp (EC 3.4.15.5)	
+0.546040250513536	Carbohydrates	Di- and oligosaccharides	Maltose_and_Maltodextrin_Utilization	Maltose/maltodextrin ABC transporter, permease protein MalG	
+0.541862297831629	Regulation and Cell signaling		Orphan_regulatory_proteins	Two-component system response regulator QseB	
+0.536762895077257	Carbohydrates	Monosaccharides	D-ribose_utilization	Ribose ABC transport system, permease protein RbsC (TC 3.A.1.2.1)	
+0.53310916962247	Amino Acids and Derivatives	Alanine, serine, and glycine	Glycine_and_Serine_Utilization	Glycine dehydrogenase [decarboxylating] (glycine cleavage system P protein) (EC 1.4.4.2)	
+0.508200691729938	Carbohydrates	Monosaccharides	D-ribose_utilization	Ribose ABC transport system, periplasmic ribose-binding protein RbsB (TC 3.A.1.2.1)	
+0.507537718316282	Iron acquisition and metabolism	Siderophores	Siderophore_Enterobactin	2,3-dihydro-2,3-dihydroxybenzoate dehydrogenase (EC 1.3.1.28) [enterobactin] siderophore	
+0.506139189619918	Sulfur Metabolism		Thioredoxin-disulfide_reductase	Thiol peroxidase, Tpx-type (EC 1.11.1.15)	
+0.497585254580463	Protein Metabolism	Protein degradation	Protein_degradation	Aminopeptidase YpdF (MP-, MA-, MS-, AP-, NP- specific)	
+0.495644189902484	Cell Wall and Capsule	Gram-Negative cell wall components	KDO2-Lipid_A_biosynthesis	UDP-3-O-[3-hydroxymyristoyl] glucosamine N-acyltransferase (EC 2.3.1.-)	
+0.490658036362648	Respiration	Electron donating reactions	Respiratory_Complex_I	NADH-ubiquinone oxidoreductase chain D (EC 1.6.5.3)	
+0.485079066955173	Virulence, Disease and Defense	Resistance to antibiotics and toxic compounds	Multidrug_Resistance_Efflux_Pumps	RND efflux system, membrane fusion protein CmeA	
+0.460929246550318	Carbohydrates	Monosaccharides	D-ribose_utilization	Ribose operon repressor	
+0.446123089771052	Motility and Chemotaxis	Flagellar motility in Prokaryota	Flagellar_motility	Flagellar biosynthesis protein FlhB	
+0.44312126804165	Membrane Transport	ABC transporters	ABC_transporter_branched-chain_amino_acid_(TC_3.A.1.4.1)	Branched-chain amino acid transport ATP-binding protein LivG (TC 3.A.1.4.1)	
+0.434139504564689	Phosphorus Metabolism		Phosphate_metabolism	NAD(P) transhydrogenase alpha subunit (EC 1.6.1.2)	
+0.430929656099486	Motility and Chemotaxis	Flagellar motility in Prokaryota	Flagellum	Flagellar biosynthesis protein FliS	
+0.407239495426341	Carbohydrates	Monosaccharides	Fructose_utilization	1-phosphofructokinase (EC 2.7.1.56)	
+0.405749594833318	Sulfur Metabolism		Galactosylceramide_and_Sulfatide_metabolism	Arylsulfatase (EC 3.1.6.1)	
+0.40491362451244	Nitrogen Metabolism		Nitrosative_stress	Nitric oxide reductase FlRd-NAD(+) reductase (EC 1.18.1.-)	
+0.392740079693472	Carbohydrates	Di- and oligosaccharides	Lactose_and_Galactose_Uptake_and_Utilization	Galactose/methyl galactoside ABC transport system, ATP-binding protein MglA (EC 3.6.3.17)	
+0.391686386796733	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Heme_and_Siroheme_Biosynthesis	Uroporphyrinogen-III methyltransferase (EC 2.1.1.107)	
+0.385303086695021	DNA Metabolism	DNA repair	DNA_Repair_Base_Excision	DNA ligase (EC 6.5.1.2)	
+0.367515639523468	Carbohydrates	Monosaccharides	D-Galacturonate_and_D-Glucuronate_Utilization	Altronate hydrolase (EC 4.2.1.7)	
