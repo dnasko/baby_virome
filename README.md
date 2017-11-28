@@ -73,7 +73,7 @@ Krona can be a great tool for exploring hierarchical data. Fortunatly your taxon
 
 Below is an example Krona plot using SEED subsystems:
 
-![alt text](https://github.com/dnasko/baby_virome/tree/master/images/example_1.png "Example 1")
+![alt text](https://github.com/dnasko/baby_virome/tree/master/images/example_1.jpg "Example 1")
 
 Be sure to cite Ondov, B. D., Bergman, N. H., & Phillippy, A. M. (2011). Interactive metagenomic visualization in a Web browser. BMC bioinformatics, 12(1), 385.
 
