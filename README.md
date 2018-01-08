@@ -35,7 +35,7 @@ The input to the Baby Virome pipeline is assembeld contigs (presumably from a vi
 The Baby Virome pipeline relies on abundance information for each contig and ORF. I mean, without that information, what are you counting? Some *k*-mer based assemblers produce a coverage metric in the header (e.g. SPAdes). However, these abundance estimates aren't very good. It's better to recruit your QC'd reads back to the contigs you just assembled. You can do this using [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) (Langmead and Salzberg 2012) or [BBMap](https://sourceforge.net/p/bbmap/wiki/Home/). Here's an example using Bowtie2 and SAMtools:
 
 ```bash
-bowtie2 -p 30 --very-sensitive-local -x MD10_VIRAL_OCT \
+bowtie2 -p 30 --very-sensitive-local -x BOWTIE_DATABASE \
 	-1 ./01-flash/out.notCombined_1.fastq.gz \
 	-2 ./01-flash/out.notCombined_2.fastq.gz \
 	-U ./01-flash/out.extendedFrags.fastq.gz 2> bowtie2.log | samtools view -Sb -F 4 - | samtools sort -o out_sorted.bam -
