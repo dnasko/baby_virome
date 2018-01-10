@@ -63,7 +63,17 @@ Next we'll parse through the tabular output for results.
 
 ### Taxonomic assignment
 
-Each contig that has an ORF that produced a BLASTp hit will be assigned a taxonomy ID.
+Each contig that has an ORF that produced a BLASTp hit will be assigned a taxonomy ID. Run the following command to get two tab-delimmited output files:
+
+```bash
+taxonomic_assignment.pl \
+	--btab seed.btab,phage_seed.btab \
+	--abundance ./bowtie/contig_abundance.txt \
+	--tax ./BabyViromeDB/taxonomy_lookup.txt \
+	--out taxonomy_results
+```
+
+Note that you need to pass both SEED and Phage SEED results to this script (separated by one comma and **no space**). This will produce the "whole virome" and "per query" output files that summarize the abundance of taxonomy throughout the metagenome and the taxonomic assignment for each query. I'd show you an example of what the output files should look like, but they contain many columns, typically one for abundance, one for the NCBI taxonomy numeric identifier, and one field for each level of taxonomy (domain, phylum, ..., genus, species).
 
 ### Functional assignment
 
