@@ -2,7 +2,7 @@
 
 ##### A small virome analysis pipeline
 
-The scripts in this repository serve to run the beta version of the Baby Virome Pipeline. The goal is to get taxonomic and functional information from shotgun viral metagenome (virome). This is done by performing a BLASTp of virome peptide open reading frames (ORFs) against the SEED and Phage SEED databases.
+The scripts in this repository serve to run the beta version of the Baby Virome Pipeline. The goal is to get taxonomic and functional information from shotgun viral metagenome (virome). This is done by performing a BLASTp of virome peptide open reading frames (ORFs) against the [SEED](http://www.theseed.org/wiki/Main_Page) and [Phage SEED](http://www.phantome.org) databases.
 
 ### Building the Baby Virome database
 
