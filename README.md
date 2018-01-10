@@ -67,7 +67,48 @@ Each contig that has an ORF that produced a BLASTp hit will be assigned a taxono
 
 ### Functional assignment
 
-Each peptide ORF with a hit will be assiend a SEED subsystem.
+Each peptide ORF with a hit will be assiend a SEED subsystem. Run the following command to get two tab-delimmited output files:
+
+```bash
+function_assignment.pl \
+	--btab seed.btab \
+	--abundance orf_abundance.txt \
+	--out viral_functional
+```
+
+Two output files will be written: "*_whole_virome_.txt" and "*_per_query.txt". The whole virome file contains two columns showing the overall abundance of various SEED subsystems throughout the entire metagenome, e.g.:
+
+```bash
+43526.42        DNA Metabolism
+23079.33        Phages, Prophages, Transposable elements
+18775.30        Carbohydrates
+17644.79        Protein Metabolism
+16199.73        Amino Acids and Derivatives
+13130.15        Motility and Chemotaxis
+12808.94        Cofactors, Vitamins, Prosthetic Groups, Pigments
+11545.92        Cell Wall and Capsule
+[...]           [...]
+```
+
+The per query file will contain three fields (sequnece ID, sequence abundance, functional assignment) with one row for each ORF assigned a function, e.g.:
+
+```bash
+NODE_115186_length_353_cov_2.60403_70_353_1     1.31        DNA Metabolism
+NODE_115189_length_353_cov_2.5604_353_1_1       2.55        Protein Metabolism
+NODE_115196_length_353_cov_2.41275_353_77_1     2.42        Protein Metabolism
+NODE_115200_length_353_cov_2.36577_1_163_1      1.50        Sulfur Metabolism
+NODE_115200_length_353_cov_2.36577_163_353_2    2.28        Carbohydrates
+```
+
+By default functions will be assigned using both bacterial and viral reference sequences from the SEED database. If you would like only viral functions this can be done using the --viruses_only flag and passing the taxonomy_lookup file:
+
+```bash
+	function_assignment.pl \
+	--btab seed.btab \
+    --abundance orf_abundance.txt \
+    --out viral_functional
+	--viruses_only ./BabyViromeDB/taxonomy_lookup.txt
+```
 
 ### Krona plots
 
