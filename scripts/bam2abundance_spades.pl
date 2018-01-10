@@ -111,6 +111,7 @@ else {
 $giga_bases /= 1000000000;
 
 open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
+print OUT "#contig_id\tbases_recruited\tcontig_length\tabundance\tnormalized_abundance\n";
 foreach my $i (keys %Hash) {
     my $len = get_len($i);
     my $cov = $Hash{$i}/$len;

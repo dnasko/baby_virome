@@ -112,13 +112,16 @@ my %ViromeResults;
 
 my $out_per_query = $outfile . "_per_query.txt";
 my $out_whole_set = $outfile . "_whole_virome.txt";
-
+my $line_count=0;
 if ($abundance) {
     open(IN,"<$abundance") || die "\n Cannot open the abundance file: $abundance\n";
     while(<IN>) {
 	chomp;
 	my @a = split(/\t/, $_);
-	$Abundance{$a[0]} = $a[4];
+	if ($line_count > 0) { ## if not on the first line
+	    $Abundance{$a[0]} = $a[4];
+	}
+	$line_count++;
     }
     close(IN);
 }

@@ -135,6 +135,7 @@ else {
 $giga_bases /= 1000000000;
 
 open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
+print OUT "#orf_id\tbases_recruited\torf_length\tabundance\tnormalized_abundance\n";
 foreach my $i (keys %Abun) {
     my $orf_len = orf_len($i);
     my $cov = $Abun{$i}/$orf_len;

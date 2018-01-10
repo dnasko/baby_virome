@@ -153,12 +153,16 @@ while(<IN>) {
 }
 close(IN);
 
+my $line_count=0;
 if ($abundance) {
     open(IN,"<$abundance") || die "\n Cannot open the abundance file: $abundance\n";
     while(<IN>) {
         chomp;
-        my @a = split(/\t/, $_);
-        $Abundance{$a[0]} = $a[4];
+	if ($line_count > 0) {
+	    my @a = split(/\t/, $_);
+	    $Abundance{$a[0]} = $a[4];
+	}
+	$line_count++;
     }
     close(IN);
 }

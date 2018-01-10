@@ -41,7 +41,7 @@ bowtie2 -p 30 --very-sensitive-local -x BOWTIE_DATABASE \
 	-U ./01-flash/out.extendedFrags.fastq.gz 2> bowtie2.log | samtools view -Sb -F 4 - | samtools sort -o out_sorted.bam -
 ```
 
-Using either tool you'll need to produce a sorted BAM file (which the above example does) to get the abundance information we want. Using that sorted BAM file you can get abundance information for contigs and predicted ORFs, like so:
+Using either tool you'll need to produce a sorted BAM file (which the above example does) to get the abundance information we want. Using that sorted BAM file you can get abundance information for contigs and predicted ORFs. The output files will contain abundance (coverage) for each contig or orf and normalized abundance (coverage divided by giga bases recruited to whole assembly). Run like so:
 
 ```bash
 ./scripts/bam2abundance_spades.pl --bam=./out_sorted.bam --out=./contig_abundance.txt
