@@ -86,7 +86,7 @@ function_assignment.pl \
 	--out viral_functional
 ```
 
-Two output files will be written: "*_whole_virome_.txt" and "*_per_query.txt". The whole virome file contains two columns showing the overall abundance of various SEED subsystems throughout the entire metagenome, e.g.:
+Two output files will be written, a "whole virome" and a "per query" file. The whole virome file contains two columns showing the overall abundance of various SEED subsystems throughout the entire metagenome, e.g.:
 
 ```bash
 43526.42        DNA Metabolism
