@@ -182,7 +182,11 @@ while(<IN>) {
 	unless (exists $Results{$a[0]}) {
 	    push(@Order, $a[0]);
 	}
-	$Results{$a[0]}{$fxn} += $a[11];
+	if (exists $Peg2Subsys{$a[1]}) {
+	    $fxn = $Peg2Subsys{$a[1]};
+	    $Results{$a[0]}{$fxn} += $a[11];
+	}
+	else { die "\n Cannot find subsys for the peg: $a[1]\n\n"; }
     }
 }
 close(IN);
