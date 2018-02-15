@@ -99,7 +99,7 @@ pod2usage( -msg  => "\n\n ERROR!  Required argument --out not found.\n\n", -exit
 
 ## Make sure SAMtools is installed
 my $samtools = `which samtools`;
-if ($samtools =~ m/samtools/ && $samtools !~ m/which/) { die "\n\n ERROR: External dependency samtools not installed in system PATH\n\n";}
+unless ($samtools =~ m/samtools/ && $samtools !~ m/which/) { die "\n\n ERROR: External dependency samtools not installed in system PATH\n\n";}
 
 my %Hash;
 my %Size;
