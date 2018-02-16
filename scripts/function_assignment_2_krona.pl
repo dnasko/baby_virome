@@ -75,7 +75,7 @@ Center for Bioinformatics and Computational Biology, University of Maryland.
 
 =head1 REPORTING BUGS
 
-Report bugs to dnasko@umiacs.umd.edu
+Report bugs to dan.nasko@gmail.com
 
 =head1 COPYRIGHT
 
