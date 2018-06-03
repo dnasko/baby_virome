@@ -16,8 +16,9 @@ taxonomic_assignment.pl -- Calculate per-ORF and overall taxonomic counts from B
 =head1 DESCRIPTION
 
  Calculates per-ORF taxonomic assignment using the btab output of a BLASTp
- against the Phage SEED database. Taxonomy is assigned based on max(sum(bit score))
- for each taxon that a contig's collection of ORF's have.
+ against the UniRef, SEED, or Phage SEED databases. Taxonomy is assigned 
+ based on max(sum(bit score)) for each taxon that a contig's collection of
+ ORF's have.
 
  If an abundnace file is passed (--abundnace) then the abundnaces in that 2-column file
  will be used to claculate abundance of a given taxon. Otherwise raw counts will be used.
@@ -28,7 +29,7 @@ taxonomic_assignment.pl -- Calculate per-ORF and overall taxonomic counts from B
 
 =item B<-b, --btab>=FILENAME
 
-BLAST tabular output(s) from a search against SEED/Phage SEED. Multiple BTAB's can be passed using commas. (Required)
+BLAST tabular output(s) from a search against UniRef or SEED/Phage SEED. Multiple BTAB's can be passed using commas. (Required)
 
 =item B<-a, --abundance>=FILENAME
 
@@ -69,7 +70,7 @@ Report bugs to dan.nasko@gmail.com
 
 =head1 COPYRIGHT
 
-Copyright 2017 Daniel Nasko.  
+Copyright 2018 Daniel Nasko.  
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.  
 This is free software: you are free to change and redistribute it.  
 There is NO WARRANTY, to the extent permitted by law.  
@@ -137,11 +138,25 @@ close(IN);
 
 my @Btabs = split(/,/, $btab);
 foreach my $btab_file (@Btabs) {
-    open(IN,"<$btab_file") || die "\n Error: Cannot open the btab file: $btab_file\n";
+    if ($btab_file =~ m/\.gz$/) {
+	open(IN,"gunzip -c $btab_file|") || die "\n Error: Cannot open the btab file: $btab_file\n";
+    }
+    else {
+	open(IN,"<$btab_file") || die "\n Error: Cannot open the btab file: $btab_file\n";
+    }
     while(<IN>) {
 	chomp;
 	my @a = split(/\t/, $_);
-	my $taxid = get_tax($a[1]);
+	my $taxid = "Unknown";
+	if ($a[1] =~ m/^fig/) { ## If its a SEED subject sequence
+	    $taxid = get_tax_seed($a[1]);
+	}
+	elsif ($a[1] =~ m/^UniRef100_/) { ## If its a UniRef subject sequence
+	    $taxid = get_tax_uniref($a[-1]); ## Need the last field. It has the TaxID
+	}
+	else { ## Fail, because this is a sequence we didn't expect
+	    die "\n Error: this line contains neither a SEED nor a UniRef sequence ID: $_\n\n";
+	}
 	my $root = get_root($a[0]);
 	unless (exists $Results{$root}) {
 	    push(@Order, $root);
@@ -190,6 +205,8 @@ foreach my $i (sort { $ViromeResults{$b} <=> $ViromeResults{$a} } keys %ViromeRe
 }
 close(OUT);
 
+exit 0;
+
 sub get_root
 {
     my $s = $_[0];
@@ -198,7 +215,7 @@ sub get_root
     return(join("_", @a));
 }
 
-sub get_tax
+sub get_tax_seed
 {
     my $s = $_[0];
     $s =~ s/^fig\|//;
@@ -206,4 +223,10 @@ sub get_tax
     return $s;
 }
 
-exit 0;
+sub get_tax_uniref
+{
+    my $s = $_[0];
+    $s =~ s/.*TaxID=//;
+    $s =~ s/ .*//;
+    return $s;
+}
