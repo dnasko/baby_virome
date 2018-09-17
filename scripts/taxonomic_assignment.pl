@@ -120,7 +120,7 @@ if ($abundance) {
 	chomp;
 	my @a = split(/\t/, $_);
 	if ($line_count > 0) { ## if not on the first line
-	    $Abundance{$a[0]} = $a[4];
+	    $Abundance{$a[0]} = $a[5]; ## we want the TPM column
 	}
 	$line_count++;
     }

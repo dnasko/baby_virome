@@ -100,6 +100,7 @@ pod2usage( -msg  => "\n\n ERROR!  Required argument --out not found.\n\n", -exit
 my %Coord;
 my %Abun;
 my $giga_bases=0;
+my $sum_cov = 0; ## This holds the sum coverage, it's what's used in the TPM normalization 
 
 open(IN,"<$orfs") || die "\n Cannot open the file: $orfs\n";
 while(<IN>) {
@@ -132,16 +133,24 @@ if (-e $bam) {
 else {
     die "\n Error: The BAM file is not there: $bam \n";
 }
-$giga_bases /= 1000000000;
 
-open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
-print OUT "#orf_id\tbases_recruited\torf_length\tabundance\tnormalized_abundance\n";
+$sum_cov /= 1000000; ## Transcripts per *million* mapped. So divide by 1 million                                                                         
+$giga_bases /= 1000000000; ## This is for the RPKM-like normalization. Coverage per giga-base.
+
 foreach my $i (keys %Abun) {
     my $orf_len = orf_len($i);
     my $cov = $Abun{$i}/$orf_len;
-    my $norm = $cov/$giga_bases;
+    $sum_cov += $cov;
+}
 
-    print OUT $i . "\t" . $Abun{$i} . "\t" . $orf_len . "\t" . $cov . "\t" . $norm ."\n";
+open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
+print OUT join("\t","#orf_id","bases_recruited","orf_length","coverage","cov_norm_rpkm","cov_norm_tpm") . "\n";
+foreach my $i (keys %Abun) {
+    my $orf_len = orf_len($i);
+    my $cov = $Abun{$i}/$orf_len;
+    my $norm_rpkm = $cov/$giga_bases;
+    my $norm_tpm  = $cov / $sum_cov;
+    print OUT join("\t", $i,$Abun{$i},$orf_len,$cov,$norm_rpkm,$norm_tpm) ."\n";
 }
 close(OUT);
 

@@ -160,7 +160,7 @@ if ($abundance) {
         chomp;
 	if ($line_count > 0) {
 	    my @a = split(/\t/, $_);
-	    $Abundance{$a[0]} = $a[4];
+	    $Abundance{$a[0]} = $a[5]; ## We want the TPM abundance
 	}
 	$line_count++;
     }

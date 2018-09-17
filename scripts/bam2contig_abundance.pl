@@ -104,6 +104,7 @@ unless ($samtools =~ m/samtools/ && $samtools !~ m/which/) { die "\n\n ERROR: Ex
 my %Hash;
 my %Size;
 my $giga_bases=0;
+my $sum_cov = 0; ## This holds the sum coverage, it's what's used in the TPM normalization
 my ($h,$s) = ("","");
 
 ## Parse through the FASTA file to get the size for each sequence
@@ -137,17 +138,28 @@ else {
     die "\n Error: The BAM file is not there: $bam \n";
 }
 
-$giga_bases /= 1000000000;
-
-open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
-print OUT "#contig_id\tbases_recruited\tcontig_length\tabundance\tnormalized_abundance\n";
+## Go through it once to get the sum_cov filled
 foreach my $i (keys %Hash) {
     my $len;
     if (exists $Size{$i}) { $len = $Size{$i}; }
     else { die "\n Error: A sequence in the BAM file isnt in the contig FASTA file you provided: $i\n\n"; }
     my $cov = $Hash{$i}/$len;
-    my $norm = $cov / $giga_bases;
-    print OUT $i . "\t" . $Hash{$i} . "\t" . $len . "\t" . $cov . "\t" . $norm . "\n";
+    $sum_cov += $cov;
+}
+
+$sum_cov /= 1000000; ## Transcripts per *million* mapped. So divide by 1 million
+$giga_bases /= 1000000000; ## This is for the RPKM-like normalization. Coverage per giga-base.
+
+open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
+print OUT join("\t", "#contig_id","bases_recruited","contig_length","coverage","cov_norm_rpkm","cov_norm_tpm") . "\n";
+foreach my $i (keys %Hash) {
+    my $len;
+    if (exists $Size{$i}) { $len = $Size{$i}; }
+    else { die "\n Error: A sequence in the BAM file isnt in the contig FASTA file you provided: $i\n\n"; }
+    my $cov = $Hash{$i}/$len;
+    my $norm_rpkm = $cov / $giga_bases;
+    my $norm_tpm  = $cov / $sum_cov;
+    print OUT join("\t", $i,$Hash{$i},$len,$cov,$norm_rpkm,$norm_tpm) . "\n";
 }
 close(OUT);
 
