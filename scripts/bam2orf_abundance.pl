@@ -134,14 +134,14 @@ else {
     die "\n Error: The BAM file is not there: $bam \n";
 }
 
-$sum_cov /= 1000000; ## Transcripts per *million* mapped. So divide by 1 million                                                                         
-$giga_bases /= 1000000000; ## This is for the RPKM-like normalization. Coverage per giga-base.
-
 foreach my $i (keys %Abun) {
     my $orf_len = orf_len($i);
     my $cov = $Abun{$i}/$orf_len;
     $sum_cov += $cov;
 }
+
+$sum_cov /= 1000000; ## Transcripts per *million* mapped. So divide by 1 million
+$giga_bases /= 1000000000; ## This is for the RPKM-like normalization. Coverage per giga-base.
 
 open(OUT,">$outfile") || die "\n Cannot open the file: $outfile\n";
 print OUT join("\t","#orf_id","bases_recruited","orf_length","coverage","cov_norm_rpkm","cov_norm_tpm") . "\n";

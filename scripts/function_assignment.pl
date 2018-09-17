@@ -130,11 +130,23 @@ if ($viruses_only) {
     close(IN);
 }
 
-open(IN,"<$btab") || die "\n Error: Cannot open the file: $btab\n";
+if ($btab =~ m/\.gz$/) {
+    open(IN,"gunzip -c $btab|") || die "\n Error: Cannot open the file: $btab\n";
+}
+else {
+    open(IN,"<$btab") || die "\n Error: Cannot open the file: $btab\n";
+}
 while(<IN>) {
     chomp;
     my @a = split(/\t/, $_);
-    my $fxn = get_fxn($a[12]);
+    my $subject = $a[1];
+    my @Fxn; ## needs to be an array, because sometimes we will have multiple functions
+    if ($subject =~ m/^UniRef/) {
+	@Fxn = get_fxn_uniref($a[12]);
+    }
+    else {
+	@fxn = get_fxn($a[12]);
+    }
     if ($viruses_only) {
 	my $taxid = get_taxid($a[1]);
 	if (exists $Viruses{$taxid}) {
@@ -199,6 +211,15 @@ foreach my $i (sort { $ViromeResults{$b} <=> $ViromeResults{$a} } keys %ViromeRe
 }
 close(OUT);
 
+exit 0;
+
+sub get_fxn_uniref
+{
+    my $s =$_[0];
+    $s =~ s/.*GO=//;
+    $s =~ s/ .*//;
+}
+
 sub get_taxid
 {
     my $s = $_[0];
@@ -213,5 +234,3 @@ sub get_fxn
     $s =~ s/.*? //;
     return $s;
 }
-
-exit 0;
