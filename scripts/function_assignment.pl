@@ -142,25 +142,33 @@ while(<IN>) {
     my $subject = $a[1];
     my @Fxn; ## needs to be an array, because sometimes we will have multiple functions
     if ($subject =~ m/^UniRef/) {
-	@Fxn = get_fxn_uniref($a[12]);
+	if ($a[-1] =~ m/GO=/) {
+	    @Fxn = get_fxn_uniref($a[-1]);
+	}
     }
     else {
-	@fxn = get_fxn($a[12]);
+	@Fxn = get_fxn_seed($a[12]);
     }
     if ($viruses_only) {
-	my $taxid = get_taxid($a[1]);
+	my $taxid;
+	if ($subject =~ m/^UniRef/) { $taxid = get_taxid_uniref($a[-1]); }
+	else { $taxid = get_taxid_seed($a[1]); }
 	if (exists $Viruses{$taxid}) {
 	    unless (exists $Results{$a[0]}) {
 		push(@Order, $a[0]);
 	    }
-	    $Results{$a[0]}{$fxn} += $a[11];
+	    foreach my $f (@Fxn) {
+		$Results{$a[0]}{$f} += $a[11];
+	    }
 	}
     }
     else {
 	unless (exists $Results{$a[0]}) {
 	    push(@Order, $a[0]);
 	}
-	$Results{$a[0]}{$fxn} += $a[11];
+	foreach my $f (@Fxn) {
+	    $Results{$a[0]}{$f} += $a[11];
+	}
     }
 }
 close(IN);
@@ -218,9 +226,19 @@ sub get_fxn_uniref
     my $s =$_[0];
     $s =~ s/.*GO=//;
     $s =~ s/ .*//;
+    my @Ret = split(/;/, $s);
+    return @Ret;
 }
 
-sub get_taxid
+sub get_taxid_uniref
+{
+    my $s = $_[0];
+    $s =~ s/.* TaxID=//;
+    $s =~ s/ .*//;
+    return $s;
+}
+
+sub get_taxid_seed
 {
     my $s = $_[0];
     $s =~ s/fig\|//;
@@ -228,9 +246,11 @@ sub get_taxid
     return $s;
 }
 
-sub get_fxn
+sub get_fxn_seed
 {
     my $s = $_[0];
+    my @Ret;
     $s =~ s/.*? //;
-    return $s;
+    push(@Ret, $s);
+    return @Ret;
 }
