@@ -41,14 +41,17 @@ bowtie2 -p 30 --very-sensitive-local -x BOWTIE_DATABASE \
 	-U ./01-flash/out.extendedFrags.fastq.gz 2> bowtie2.log | samtools view -Sb -F 4 - | samtools sort -o out_sorted.bam -
 ```
 
-Using either tool you'll need to produce a sorted BAM file (which the above example does) to get the abundance information we want. Using that sorted BAM file you can get abundance information for contigs and predicted ORFs. The output files will contain abundance (coverage) for each contig or orf and normalized abundance (coverage divided by giga bases recruited to whole assembly). Run like so:
+Using either tool you'll need to produce a sorted BAM file (which the above example does) to get the abundance information we want. Using that sorted BAM file you can get abundance information for contigs and predicted ORFs. The output files will contain coverage (used as a proxy for abundance) for each contig or orf and normalized coverage, calculated two ways: (1) coverage divided by giga bases recruited to whole assembly (RPKM-like) and (2) coverage divided by total coverage per million (TPM-like). The second normalization is relative (i.e. the column should sum to 1 million). Here's how you run it:
 
 ```bash
-./scripts/bam2abundance_spades.pl --bam=./out_sorted.bam --out=./contig_abundance.txt
-./scripts/bam2orf_abundance.pl --bam=./out_sorted.bam --orfs=./orfs.pep --out=./orf_abundance.txt
-```
+./scripts/bam2contig_abundance.pl --bam ./out_sorted.bam \
+	--fasta contigs.fasta \
+	--out contig_abundance.txt
 
-Note that the contig abundance can only be calculated when the input contigs are from a SPAdes assembly. Happy to change this if someone would like me to...
+./scripts/bam2orf_abundance.pl --bam ./out_sorted.bam \
+	--orfs orfs.pep \
+	--out orf_abundance.txt
+```
 
 ### BLAST against SEED and Phage SEED
 
