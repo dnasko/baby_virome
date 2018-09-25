@@ -6,21 +6,21 @@
 
 =head1 NAME
 
-taxonomic_assignment.pl -- Calculate per-ORF and overall taxonomic counts from BLAST output
+taxonomic_assignment_update.pl -- Calculate per-contig and overall taxonomic counts from BLAST output
 
 =head1 SYNOPSIS
 
- taxonomic_assignment.pl --btab=/Path/to/input1.btab,/to/input2.btab --tax=/Path/to/taxa.lookup --out=/Path/to/output.txt [--abundance=/Path/to/abun.txt]
+ taxonomic_assignment.pl --btab=/Path/to/input1.btab,/to/input2.btab --names /Path/to/names.dmp --nodes /Path/to/nodes.dmp --out /Path/to/output.txt [--abundance=/Path/to/abun.txt]
                      [--help] [--manual]
 
 =head1 DESCRIPTION
 
- Calculates per-ORF taxonomic assignment using the btab output of a BLASTp
+ Calculates per-contig taxonomic assignment using the btab output of a BLASTp
  against the UniRef, SEED, or Phage SEED databases. Taxonomy is assigned 
  based on max(sum(bit score)) for each taxon that a contig's collection of
- ORF's have.
+ ORFs have.
 
- If an abundnace file is passed (--abundnace) then the abundnaces in that 2-column file
+ If an abundnace file is passed (--abundance) then the abundnaces in the tpm column
  will be used to claculate abundance of a given taxon. Otherwise raw counts will be used.
  
 =head1 OPTIONS
@@ -33,11 +33,15 @@ BLAST tabular output(s) from a search against UniRef or SEED/Phage SEED. Multipl
 
 =item B<-a, --abundance>=FILENAME
 
-2-column file with <header> [TAB] <abundance>. Will be used to calculate abundance (Optional).
+The contig abundance file created from the bam2contig_abundance.pl script. Will use the `tpm` field (Optional).
 
-=item B<-t, --tax>=FILENAME
+=item B<-na, --names>=FILENAME
 
-Taxonomy lookup file made by the build_taxonomy_table.pl script (Required).
+Path to the NCBI names.dmp file from the taxdump directory. (Required)
+
+=item B<-no, --nodes>=FILENAME
+
+Path to the NCBI nodes.dmp file from the taxdump directory. (Required) 
 
 =item B<-o, --out>=FILENAME
 
@@ -88,11 +92,12 @@ use File::Basename;
 use Pod::Usage;
 
 #ARGUMENTS WITH NO DEFAULT
-my($btab,$taxonomy,$abundance,$outfile,$help,$manual);
+my($btab,$names,$nodes,$abundance,$outfile,$help,$manual);
 
 GetOptions (	
                                 "b|btab=s"	=>	\$btab,
-                                "t|tax=s"       =>      \$taxonomy,
+                                "na|names=s"    =>      \$names,
+                                "no|nodes=s"    =>      \$nodes,
                                 "a|abundance=s" =>      \$abundance,
 				"o|out=s"	=>	\$outfile,
 				"h|help"	=>	\$help,
@@ -102,11 +107,44 @@ GetOptions (
 pod2usage(-verbose => 2)  if ($manual);
 pod2usage( {-exitval => 0, -verbose => 2, -output => \*STDERR} )  if ($help);
 pod2usage( -msg  => "\n\n ERROR!  Required argument --btab not found.\n\n", -exitval => 2, -verbose => 1)  if (! $btab );
-pod2usage( -msg  => "\n\n ERROR!  Required argument --taxonomy not found.\n\n", -exitval => 2, -verbose => 1)  if (! $taxonomy );
-pod2usage( -msg  => "\n\n ERROR!  Required argument -outfile not found.\n\n", -exitval => 2, -verbose => 1)  if (! $outfile);
+pod2usage( -msg  => "\n\n ERROR!  Required argument --names not found.\n\n", -exitval => 2, -verbose => 1)  if (! $names );
+pod2usage( -msg  => "\n\n ERROR!  Required argument --nodes not found.\n\n", -exitval => 2, -verbose => 1)  if (! $nodes );
+pod2usage( -msg  => "\n\n ERROR!  Required argument --out not found.\n\n", -exitval => 2, -verbose => 1)  if (! $outfile);
 
-my %Abundance;
+## Build the taxonomt lookup
+my %Names;
+my %Tree;
 my %Taxa;
+
+open(IN,"<$names") || die "\n Cannot open the file: $names\n";
+while(<IN>) {
+    chomp;
+    my @a = split(/\t/, $_);
+    if ($a[6] eq "scientific name") {
+	$Names{$a[0]} = $a[2];
+    }
+}
+close(IN);
+
+open(IN,"<$nodes") || die "\n Cannot open the file: $nodes\n";
+while(<IN>) {
+    chomp;
+    my @a = split(/\t/, $_);
+    my $parent = $a[2];
+    my $child  = $a[0];
+    $Tree{$child} = $parent;
+}
+close(IN);
+
+foreach my $child (keys %Tree) {
+    my $parent = $Tree{$child};
+    my @Taxa = get_lineage($child);
+    my $lineage = join("\t", @Taxa);
+    $Taxa{$child} = $lineage;
+}
+
+## Load the abundance information
+my %Abundance;
 my @Order;
 my %Results;
 my %ViromeResults;
@@ -127,15 +165,7 @@ if ($abundance) {
     close(IN);
 }
 
-open(IN,"<$taxonomy") || die "\n Cannot open the taxonomy file: $taxonomy\n";
-while(<IN>) {
-    chomp;
-    my @a = split(/\t/, $_);
-    my $taxid = shift(@a);
-    $Taxa{$taxid} = join("\t", @a);
-}
-close(IN);
-
+## Parse through the btab files
 my @Btabs = split(/,/, $btab);
 foreach my $btab_file (@Btabs) {
     if ($btab_file =~ m/\.gz$/) {
@@ -229,4 +259,20 @@ sub get_tax_uniref
     $s =~ s/.*TaxID=//;
     $s =~ s/ .*//;
     return $s;
+}
+
+sub get_lineage
+{
+    my $s = $_[0];
+    my $parent = $Tree{$s};
+    my @a = ($s, $parent);
+    while($parent != 1) {
+	$parent = $Tree{$parent};
+	push(@a, $parent);
+    }
+    @a = reverse(@a);
+    my @b;
+    foreach my $i (@a) {push(@b, $Names{$i}); }
+    shift(@b);
+    return(@b);
 }
