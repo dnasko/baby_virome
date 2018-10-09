@@ -1,12 +1,12 @@
 #!/usr/bin/perl
 
-# MANUAL FOR function_assignment.pl
+# MANUAL FOR function_assignment_seed.pl
 
 =pod
 
 =head1 NAME
 
-function_assignment.pl -- Calculate per-ORF and overall functional counts from BLAST output
+function_assignment.pl -- Calculate per-ORF and overall functional counts from SEED BLAST output
 
 =head1 SYNOPSIS
 
@@ -130,29 +130,23 @@ if ($viruses_only) {
     close(IN);
 }
 
+my $bfh;
 if ($btab =~ m/\.gz$/) {
-    open(IN,"gunzip -c $btab|") || die "\n Error: Cannot open the file: $btab\n";
+    open($bfh,"gunzip -c $btab|") || die "\n Error: Cannot open the file: $btab\n";
 }
 else {
-    open(IN,"<$btab") || die "\n Error: Cannot open the file: $btab\n";
+    open($bfh,'<', $btab) || die "\n Error: Cannot open the file: $btab\n";
 }
-while(<IN>) {
+while(<$bfh>) {
     chomp;
     my @a = split(/\t/, $_);
     my $subject = $a[1];
     my @Fxn; ## needs to be an array, because sometimes we will have multiple functions
-    if ($subject =~ m/^UniRef/) {
-	if ($a[-1] =~ m/GO=/) {
-	    @Fxn = get_fxn_uniref($a[-1]);
-	}
-    }
-    else {
-	@Fxn = get_fxn_seed($a[12]);
-    }
+    if ($subject =~ m/^UniRef/) { die "\n Error: this looks like a UniRef result. Needs to be SEED.\n"; }
+    @Fxn = get_fxn_seed($a[12]);
     if ($viruses_only) {
 	my $taxid;
-	if ($subject =~ m/^UniRef/) { $taxid = get_taxid_uniref($a[-1]); }
-	else { $taxid = get_taxid_seed($a[1]); }
+	$taxid = get_taxid_seed($a[1]);
 	if (exists $Viruses{$taxid}) {
 	    unless (exists $Results{$a[0]}) {
 		push(@Order, $a[0]);
@@ -171,12 +165,12 @@ while(<IN>) {
 	}
     }
 }
-close(IN);
+close($bfh);
 
 my $line_count=0;
 if ($abundance) {
-    open(IN,"<$abundance") || die "\n Cannot open the abundance file: $abundance\n";
-    while(<IN>) {
+    open(my $afh,'<', $abundance) || die "\n Cannot open the abundance file: $abundance\n";
+    while(<$afh>) {
         chomp;
 	if ($line_count > 0) {
 	    my @a = split(/\t/, $_);
@@ -184,59 +178,42 @@ if ($abundance) {
 	}
 	$line_count++;
     }
-    close(IN);
+    close($afh);
 }
 
-open(OUT,">$out_per_query") || die "\n Cannot open the file: $out_per_query\n";
+open(my $ofh,'>', $out_per_query) || die "\n Cannot open the file: $out_per_query\n";
 foreach my $i (@Order) {
     my $max=0;
-    my $fxn;
+    my $fxn = "";
     foreach my $j (keys %{$Results{$i}}) {
 	if ($Results{$i}{$j} > $max) {
 	    $Results{$i}{$j} = $max;
 	    $fxn = $j;
 	}
     }
-    print OUT $i . "\t";
+    print $ofh $i . "\t";
     if ($abundance) {
 	if (exists $Abundance{$i}) {
-	    print OUT $Abundance{$i} . "\t";
+	    print $ofh $Abundance{$i} . "\t";
 	    $ViromeResults{$fxn} += $Abundance{$i};
 	}
-	else { print OUT "0\t"; }
+	else { print $ofh "0\t"; }
     }
     else {
-	print OUT "1\t";
+	print $ofh "1\t";
 	$ViromeResults{$fxn}++;
     }
-    print OUT $fxn . "\n";
+    print $ofh $fxn . "\n";
 }
-close(OUT);
+close($ofh);
 
-open(OUT,">$out_whole_set") || die "\n Cannot open the file: $out_whole_set\n";
+open(my $owfh,'>', $out_whole_set) || die "\n Cannot open the file: $out_whole_set\n";
 foreach my $i (sort { $ViromeResults{$b} <=> $ViromeResults{$a} } keys %ViromeResults) {
-    print OUT $ViromeResults{$i} . "\t" . $i . "\n";
+    print $owfh $ViromeResults{$i} . "\t" . $i . "\n";
 }
-close(OUT);
+close($owfh);
 
 exit 0;
-
-sub get_fxn_uniref
-{
-    my $s =$_[0];
-    $s =~ s/.*GO=//;
-    $s =~ s/ .*//;
-    my @Ret = split(/;/, $s);
-    return @Ret;
-}
-
-sub get_taxid_uniref
-{
-    my $s = $_[0];
-    $s =~ s/.* TaxID=//;
-    $s =~ s/ .*//;
-    return $s;
-}
 
 sub get_taxid_seed
 {

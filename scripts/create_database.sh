@@ -34,8 +34,8 @@ cd tax
 wget "http://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
 tar -xvf taxdump.tar.gz
 rm taxdump.tar.gz
-
-"${SCRIPT_DIR}/build_taxonomy_table.pl" -no nodes.dmp -na names.dmp -o ../taxonomy_lookup.txt
+mv nodes.dmp ../
+mv names.dmp ../
 cd ../
 rm -rf tax
 cd ../
